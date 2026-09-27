@@ -2,11 +2,11 @@
    Website Samples showcase
    ---------------------------------------------------------
    EDIT THESE TWO LINES with your contact details:
-   - whatsapp: country code + number, digits only (e.g. 94771234567)
+   - whatsapp: WhatsApp username (or country code + number, digits only)
    - email:    where enquiries should go
    ========================================================= */
 const CONTACT = {
-  whatsapp: 'kalharatennakoon',                                // e.g. '94771234567' (leave empty to hide WhatsApp)
+  whatsapp: 'kalharatennakoon',                            // WhatsApp username (leave empty to hide WhatsApp)
   email: 'kalharatennakoonmck@gmail.com'
 };
 
