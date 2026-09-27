@@ -20,19 +20,6 @@ Visitors pick a category tab, preview the live sample site in **desktop** or **m
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies.
 
-## Before you publish: add your contact details
-
-Open `assets/app.js` and edit the two lines at the top:
-
-```js
-const CONTACT = {
-  whatsapp: '94771234567',   // country code + number, digits only
-  email: 'you@example.com'
-};
-```
-
-If `whatsapp` is left empty, the WhatsApp button is hidden and enquiries open an email instead.
-
 ## Deploy to GitHub Pages
 
 1. Create a new **public** repository named `website-samples`.
