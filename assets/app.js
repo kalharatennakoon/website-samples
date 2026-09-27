@@ -6,7 +6,7 @@
    - email:    where enquiries should go
    ========================================================= */
 const CONTACT = {
-  whatsapp: '',                                // e.g. '94771234567' (leave empty to hide WhatsApp)
+  whatsapp: 'kalharatennakoon',                                // e.g. '94771234567' (leave empty to hide WhatsApp)
   email: 'kalharatennakoonmck@gmail.com'
 };
 
