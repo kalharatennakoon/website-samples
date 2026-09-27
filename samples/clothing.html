@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loom &amp; Leaf — Clothing Boutique (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--plum:#3b1f2b;--blush:#f5e6df;--coral:#e2725b;--ink:#2a1a20;--mut:#8a767c;--bg:#fffaf7;--nav-bg:#fffaf7}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.serif{font-family:Fraunces,Georgia,serif}
+.bar{background:var(--plum);color:#f3d3c7;font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:9px}
+header{position:sticky;top:0;z-index:40;background:rgba(255,250,247,.92);backdrop-filter:blur(10px);border-bottom:1px solid #f0e2db}
+header .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:72px;position:relative}
+.nav-links{display:flex;gap:26px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.brand{font-family:Fraunces;font-size:28px;font-weight:600;letter-spacing:-.02em;text-align:center}
+.icons{display:flex;justify-content:flex-end;gap:10px;align-items:center}
+.icon{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;position:relative}
+.icon:hover{background:var(--blush)}
+.icon .n{position:absolute;top:2px;right:0;background:var(--coral);color:#fff;font-size:10px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:999px;transition:.2s}
+.btn-plum{background:var(--plum);color:#fff}.btn-plum:hover{background:var(--coral)}
+.btn-white{background:#fff;color:var(--plum)}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px}
+.hero .ph{--ph:#e8cfc4}
+.hero .txt{background:var(--blush);display:flex;flex-direction:column;justify-content:center;padding:60px clamp(24px,6vw,90px)}
+.hero small{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)}
+.hero h1{font-family:Fraunces;font-weight:500;font-size:clamp(44px,6vw,86px);line-height:.95;letter-spacing:-.03em;margin:16px 0 20px}
+.hero h1 i{color:var(--coral)}
+.hero p{color:var(--mut);line-height:1.7;max-width:420px;margin-bottom:30px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap}
+
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:70px 0 20px}
+.cat{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:3/4;color:#fff;display:flex;align-items:flex-end;--ph:#d9bfb3}
+.cat .ph{position:absolute;inset:0}.cat .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(42,26,32,.7),transparent 55%)}
+.cat:hover img{transform:scale(1.06)}
+.cat span{position:relative;padding:20px;font-family:Fraunces;font-size:24px}
+.cat span small{display:block;font-family:Manrope;font-size:12px;opacity:.85;letter-spacing:.08em;text-transform:uppercase}
+
+section.block{padding:70px 0}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;gap:20px;flex-wrap:wrap}
+h2{font-family:Fraunces;font-weight:500;font-size:clamp(32px,4.4vw,52px);letter-spacing:-.02em;line-height:1}
+.sort{display:flex;gap:18px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sort button{color:var(--mut);padding-bottom:4px;border-bottom:2px solid transparent}
+.sort button.on{color:var(--ink);border-color:var(--coral)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 18px}
+.prod{cursor:pointer}
+.prod .ph{aspect-ratio:3/4;border-radius:18px;--ph:#eed9d0}
+.prod:hover img{transform:scale(1.04)}
+.prod .tag{position:absolute;top:12px;left:12px;background:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.prod .quick{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(255,255,255,.95);text-align:center;padding:12px;border-radius:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateY(8px);transition:.25s}
+.prod:hover .quick{opacity:1;transform:none}
+.prod h3{font-size:15px;font-weight:600;margin-top:12px}
+.prod .pr{display:flex;gap:8px;margin-top:4px;font-size:15px}
+.prod .pr b{color:var(--coral)}.prod .pr s{color:var(--mut)}
+
+.look{display:grid;grid-template-columns:1.2fr 1fr;gap:0;background:var(--plum);color:#fff;border-radius:32px;overflow:hidden}
+.look .ph{min-height:460px;--ph:#5a3040}
+.look .txt{padding:56px}
+.look h2{color:#fff}
+.look p{color:#dcc4cc;line-height:1.7;margin:18px 0 28px}
+.look ul{display:grid;gap:10px;margin-bottom:28px}
+.look li{display:flex;gap:10px;align-items:center;font-size:15px}
+.look li::before{content:"✦";color:var(--coral)}
+
+.news{text-align:center;max-width:620px;margin:0 auto}
+.news p{color:var(--mut);margin:14px 0 24px}
+.news form{display:flex;gap:8px;background:#fff;border:1px solid #f0e2db;padding:6px;border-radius:999px}
+.news input{flex:1;border:0;outline:0;font:inherit;padding:0 18px;background:none;min-width:0}
+
+/* quick view */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(42,26,32,.5);opacity:0;pointer-events:none;transition:.25s}
+.modal.open{opacity:1;pointer-events:auto}
+.sheet{background:var(--bg);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;width:min(860px,100%);max-height:calc(100vh - 40px);transform:translateY(20px);transition:.3s}
+.modal.open .sheet{transform:none}
+.sheet .ph{min-height:420px;--ph:#eed9d0}
+.sheet .d{padding:34px;position:relative;overflow:auto}
+.sheet .x{position:absolute;right:16px;top:14px;font-size:28px;color:var(--mut)}
+.sheet h3{font-family:Fraunces;font-weight:500;font-size:32px;line-height:1.05;margin-right:30px}
+.sheet .p{font-size:22px;font-weight:700;color:var(--coral);margin:10px 0 16px}
+.sheet p.desc{color:var(--mut);line-height:1.6;font-size:14px}
+.sheet label{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:20px 0 10px}
+.sizes{display:flex;gap:8px;flex-wrap:wrap}
+.sizes button{width:48px;height:44px;border-radius:12px;border:1px solid #e6d3cb;font-weight:700}
+.sizes button.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.sheet .btn{width:100%;margin-top:24px}
+footer{padding:50px 0 70px;color:var(--mut);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  .hero,.look,.sheet{grid-template-columns:1fr}
+  .hero .ph{min-height:380px;order:-1}
+  .cats,.grid{grid-template-columns:1fr 1fr}
+  .look .txt{padding:32px 24px}.look .ph{min-height:300px}
+  .sheet .ph{min-height:260px}
+}
+@media (max-width:760px){
+  header .wrap{grid-template-columns:auto 1fr auto}
+  .brand{text-align:left;font-size:24px;padding-left:4px}
+  .burger{order:-1}
+  .prod .quick{opacity:1;transform:none;padding:9px;font-size:11px}
+  section.block{padding:50px 0}.cats{padding-top:40px}
+}
+</style>
+</head>
+<body>
+<div class="bar">Free island-wide delivery over LKR 7,500 · Easy 14-day exchanges</div>
+<header>
+  <div class="wrap">
+    <nav class="nav-links"><a href="#shop">New in</a><a href="#shop">Women</a><a href="#shop">Men</a><a href="#look">Handloom</a></nav>
+    <button class="burger" aria-label="Menu"><span></span></button>
+    <a class="brand" href="#">Loom &amp; Leaf</a>
+    <div class="icons">
+      <a class="icon" href="#" onclick="toast('Demo: search');return false" aria-label="Search"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
+      <a class="icon" href="#" onclick="toast('Demo: shopping bag');return false" aria-label="Bag"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 8h14l-1.3 12H6.3z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span class="n" id="bag">0</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="txt">
+    <small>Festive Edit · 2026</small>
+    <h1>Wear the <i>season</i> beautifully.</h1>
+    <p>Relaxed linens, hand-woven cottons and easy everyday pieces, designed in Sri Lanka and made in small batches.</p>
+    <div class="cta"><a class="btn btn-plum" href="#shop">Shop new in</a><a class="btn btn-white" href="#look">The lookbook</a></div>
+  </div>
+  <div class="ph"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=70" alt="Woman in sunglasses, fashion editorial"></div>
+</section>
+
+<div class="wrap cats">
+  <a class="cat" href="#shop"><div class="ph"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=70" alt=""></div><span><small>Shop</small>Women</span></a>
+  <a class="cat" href="#shop"><div class="ph"><img src="https://images.unsplash.com/photo-1603189343302-e603f7add05a?auto=format&fit=crop&w=600&q=70" alt=""></div><span><small>Shop</small>Men</span></a>
+  <a class="cat" href="#shop"><div class="ph"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=70" alt=""></div><span><small>Explore</small>Essentials</span></a>
+  <a class="cat" href="#look"><div class="ph"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=600&q=70" alt=""></div><span><small>Handmade</small>Handloom</span></a>
+</div>
+
+<section class="block" id="shop">
+  <div class="wrap">
+    <div class="head"><h2>New arrivals</h2>
+      <div class="sort"><button class="on" data-s="new">Newest</button><button data-s="low">Price ↑</button><button data-s="high">Price ↓</button></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="block" id="look" style="padding-top:10px">
+  <div class="wrap"><div class="look">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1100&q=70" alt="Boutique interior with clothing racks"></div>
+    <div class="txt"><small style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--coral)">Visit the studio</small><h2>Made by hand, made to last</h2>
+      <p>Every handloom piece is woven by artisans we know by name. Come see the fabrics, try things on and have them tailored on the spot.</p>
+      <ul><li>Free alterations in store</li><li>Custom sizing available</li><li>Gift wrapping on request</li></ul>
+      <a class="btn btn-white" href="#" onclick="toast('Demo: opens map');return false">Find the studio</a></div>
+  </div></div>
+</section>
+
+<section class="block" style="padding-top:20px">
+  <div class="wrap news"><h2>Join the list</h2><p>New drops, private sales and styling notes. No spam, promise.</p>
+    <form data-demo="You're on the list! (Demo)"><input type="email" required placeholder="Your email address"><button class="btn btn-plum" style="padding:14px 22px">Subscribe</button></form></div>
+</section>
+<footer><div class="wrap"><span class="serif" style="font-size:20px;color:var(--ink)">Loom &amp; Leaf</span><span>© 2026 · Demo clothing store website</span></div></footer>
+
+<div class="modal" id="modal"><div class="sheet">
+  <div class="ph"><img id="mImg" alt=""></div>
+  <div class="d"><button class="x" data-close aria-label="Close">×</button>
+    <h3 id="mName"></h3><div class="p" id="mPrice"></div>
+    <p class="desc" id="mDesc"></p>
+    <label>Size</label><div class="sizes" id="sizes"><button>XS</button><button>S</button><button class="on">M</button><button>L</button><button>XL</button></div>
+    <button class="btn btn-plum" id="addBag">Add to bag</button>
+  </div>
+</div></div>
+
+<script src="shared.js"></script>
+<script>
+const U=(id,w=600)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
+const items=[
+ {n:'Linen Shirt · Sand',p:6900,img:'1591047139829-d91aecb6caea',t:'New',d:'Breathable pure linen with a relaxed fit, coconut-shell buttons.',o:1},
+ {n:'Chunky Knit Pullover',p:8900,img:'1574201635302-388dd92a4c3f',t:'',d:'Soft cotton-blend knit for cool Nuwara Eliya evenings.',o:2},
+ {n:'Tailored Blazer',p:15900,img:'1603189343302-e603f7add05a',t:'Bestseller',d:'Sharp, lightweight blazer with a half lining for warm days.',o:3},
+ {n:'Everyday Tee Pack',p:4500,old:5600,img:'1562157873-818bc0726f68',t:'Sale',d:'Three heavyweight cotton tees in earthy tones.',o:4},
+ {n:'Weekend Tracksuit',p:11900,img:'1515886657613-9f3515b0c78f',t:'New',d:'Bold, comfy and made for weekend errands in style.',o:5},
+ {n:'Handloom Wrap Top',p:7400,img:'1558769132-cb1aea458c5e',t:'Handloom',d:'Hand-woven cotton wrap top with natural dyes.',o:6},
+ {n:'Printed Shirts',p:5900,img:'1532453288672-3a27e9be9efd',t:'',d:'Easy printed cotton shirts in four colourways.',o:7},
+ {n:'Studio Hanger Edit',p:9800,old:12500,img:'1490481651871-ab68de25d43d',t:'Sale',d:'A capsule of neutral basics that mix and match.',o:8}
+];
+const fmt=n=>'LKR '+n.toLocaleString('en-US');
+let bag=0,cur=null;
+function draw(list){
+  document.getElementById('grid').innerHTML=list.map(i=>`
+   <div class="prod" data-i="${items.indexOf(i)}">
+    <div class="ph"><img loading="lazy" src="${U(i.img)}" alt="${i.n}" onerror="this.classList.add('broken')">${i.t?`<span class="tag">${i.t}</span>`:''}<span class="quick">Quick view</span></div>
+    <h3>${i.n}</h3><div class="pr"><b>${fmt(i.p)}</b>${i.old?`<s>${fmt(i.old)}</s>`:''}</div>
+   </div>`).join('');
+}
+draw(items);
+document.querySelectorAll('.sort button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.sort button').forEach(x=>x.classList.toggle('on',x===b));
+  const s=b.dataset.s,l=[...items];
+  l.sort((a,c)=>s==='low'?a.p-c.p:s==='high'?c.p-a.p:a.o-c.o);draw(l);
+}));
+const modal=document.getElementById('modal');
+document.addEventListener('click',e=>{
+  const p=e.target.closest('.prod');
+  if(p){cur=items[p.dataset.i];mImg.classList.remove('broken');mImg.src=U(cur.img,900);mImg.onerror=()=>mImg.classList.add('broken');mName.textContent=cur.n;mPrice.textContent=fmt(cur.p);mDesc.textContent=cur.d;modal.classList.add('open');}
+  if(e.target===modal||e.target.hasAttribute('data-close'))modal.classList.remove('open');
+  if(e.target.matches('.sizes button'))document.querySelectorAll('.sizes button').forEach(x=>x.classList.toggle('on',x===e.target));
+});
+addBag.addEventListener('click',()=>{bag++;document.getElementById('bag').textContent=bag;modal.classList.remove('open');
+  toast(cur.n+' ('+document.querySelector('.sizes .on').textContent+') added to bag');});
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PhoneHub — Mobile Phones, Accessories &amp; Repairs (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--bg:#0b0b10;--card:#15151d;--line:#262631;--ink:#f4f4f7;--mut:#9a9aac;--acc:#7c5cff;--acc2:#22d3ee;--nav-bg:#0b0b10}
+body{font-family:Sora,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;z-index:40;background:rgba(11,11,16,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;position:relative}
+.brand{font-weight:800;font-size:21px;letter-spacing:-.03em}
+.brand b{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--mut)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:14px 24px;border-radius:14px;transition:.2s}
+.btn-acc{background:linear-gradient(90deg,var(--acc),#9b7bff);color:#fff}.btn-acc:hover{filter:brightness(1.1)}
+.btn-line{border:1px solid var(--line);color:var(--ink)}.btn-line:hover{border-color:var(--mut)}
+
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:700px;height:700px;right:-160px;top:-200px;background:radial-gradient(circle,rgba(124,92,255,.35),transparent 60%)}
+.hero::after{content:"";position:absolute;width:500px;height:500px;left:-200px;bottom:-240px;background:radial-gradient(circle,rgba(34,211,238,.18),transparent 60%)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:70px 0}
+.new{display:inline-flex;gap:8px;align-items:center;font-size:13px;border:1px solid var(--line);background:var(--card);padding:6px 12px 6px 6px;border-radius:999px}
+.new b{background:var(--acc);color:#fff;padding:3px 9px;border-radius:999px;font-size:11px}
+h1{font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.045em;margin:20px 0 18px}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--mut);font-size:17px;line-height:1.6;max-width:500px}
+.hero .cta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.perks{display:flex;gap:24px;margin-top:34px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+.perks span b{color:var(--ink);display:block;font-size:15px}
+.hero .ph{aspect-ratio:4/5;border-radius:32px;--ph:#1c1c28;border:1px solid var(--line)}
+.price-tag{position:absolute;right:18px;bottom:18px;background:rgba(11,11,16,.8);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:12px 16px;font-size:12px;color:var(--mut)}
+.price-tag b{display:block;color:var(--ink);font-size:20px}
+
+section.block{padding:80px 0}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc2)}
+h2{font-size:clamp(28px,4vw,44px);letter-spacing:-.035em;margin-top:10px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.brands{display:flex;gap:8px;flex-wrap:wrap}
+.brands button{padding:10px 18px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-weight:600;font-size:14px;color:var(--mut)}
+.brands button.on{color:#fff;border-color:var(--acc);background:rgba(124,92,255,.15)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ph-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:14px;display:flex;flex-direction:column;transition:.25s}
+.ph-card:hover{border-color:#3a3a4a;transform:translateY(-4px)}
+.ph-card .ph{aspect-ratio:1;border-radius:18px;--ph:#1e1e2a}
+.ph-card .stock{position:absolute;top:10px;left:10px;font-size:11px;font-weight:600;padding:4px 9px;border-radius:8px;background:rgba(34,211,238,.18);color:var(--acc2);backdrop-filter:blur(6px)}
+.ph-card h3{font-size:16px;margin-top:14px;letter-spacing:-.01em}
+.ph-card small{color:var(--mut);font-size:12px}
+.swatch{display:flex;gap:6px;margin-top:10px}
+.swatch i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);cursor:pointer}
+.swatch i.on{outline:2px solid var(--acc);outline-offset:1px}
+.ph-card .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px}
+.ph-card .row b{font-size:17px}
+.ph-card .row small{display:block}
+.buy{padding:9px 14px;border-radius:10px;background:#fff;color:#000;font-weight:700;font-size:13px}
+.ph-card.hide{display:none}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:32px}
+.panel h3{font-size:24px;letter-spacing:-.02em}
+.panel p{color:var(--mut);margin-top:8px;line-height:1.6;font-size:15px}
+.panel label{display:block;font-size:13px;color:var(--mut);margin:18px 0 8px}
+.panel select{width:100%;font:inherit;padding:14px;border-radius:12px;background:#0f0f15;color:var(--ink);border:1px solid var(--line)}
+.cond{display:flex;gap:6px}
+.cond button{flex:1;padding:12px 6px;border-radius:12px;border:1px solid var(--line);font-weight:600;font-size:13px;color:var(--mut)}
+.cond button.on{border-color:var(--acc2);color:var(--acc2);background:rgba(34,211,238,.08)}
+.value{margin-top:22px;padding:20px;border-radius:18px;background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(34,211,238,.15));display:flex;justify-content:space-between;align-items:center}
+.value b{font-size:30px;letter-spacing:-.03em}
+.repairs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.repairs div{border:1px solid var(--line);border-radius:16px;padding:16px}
+.repairs b{display:block;font-size:15px}.repairs span{font-size:13px;color:var(--mut)}
+.repairs em{font-style:normal;color:var(--acc2);font-weight:600;font-size:13px;display:block;margin-top:6px}
+
+.store{border-radius:32px;overflow:hidden;position:relative;min-height:320px;display:flex;align-items:center;--ph:#1c1c28}
+.store .ph{position:absolute;inset:0}.store .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,16,.95),rgba(11,11,16,.4))}
+.store .in{position:relative;padding:48px;max-width:520px}
+.store p{color:var(--mut);margin:12px 0 22px;line-height:1.6}
+footer{padding:40px 0 70px;color:var(--mut);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .hero .wrap{grid-template-columns:1fr;padding:40px 0}
+  .hero .ph{aspect-ratio:1}
+  section.block{padding:56px 0}
+  .grid{gap:10px}
+  .ph-card{padding:10px;border-radius:18px}
+  .store .in{padding:28px}
+  .panel{padding:22px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Phone<b>Hub</b></a>
+    <nav class="nav-links"><a href="#phones">Phones</a><a href="#tradein">Trade-in</a><a href="#tradein">Repairs</a><a href="#visit">Visit us</a></nav>
+    <a class="btn btn-acc nav-cta" href="#phones" style="padding:10px 18px">Shop now</a>
+    <button class="burger" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="new"><b>NEW</b>Latest flagships now in stock</span>
+      <h1>Upgrade to your <span>next phone</span> today.</h1>
+      <p>Brand-new and certified pre-owned smartphones with official warranty, easy monthly plans and same-day screen repairs.</p>
+      <div class="cta"><a class="btn btn-acc" href="#phones">Browse phones</a><a class="btn btn-line" href="#tradein">Trade in your phone</a></div>
+      <div class="perks"><span><b>1-year warranty</b>On every phone</span><span><b>0% plans</b>Up to 12 months</span><span><b>Island-wide</b>Delivery</span></div>
+    </div>
+    <div style="position:relative">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=900&q=70" alt="Smartphone floating over a hand"></div>
+      <div class="price-tag">From<b>LKR 14,500 / mo</b>with 0% instalments</div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="phones" style="padding-top:30px">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">Shop</div><h2>Popular right now</h2></div>
+      <div class="brands"><button class="on" data-b="all">All</button><button data-b="apple">Apple</button><button data-b="samsung">Samsung</button><button data-b="xiaomi">Xiaomi</button><button data-b="used">Pre-owned</button></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p style="font-size:12px;color:var(--mut);margin-top:14px">Demo store. Prices and stock are illustrative.</p>
+  </div>
+</section>
+
+<section class="block" id="tradein" style="padding-top:0">
+  <div class="wrap split">
+    <div class="panel">
+      <div class="eyebrow">Trade-in</div><h3>What's your old phone worth?</h3><p>Get an instant estimate and use it towards your new phone.</p>
+      <label>Your phone</label>
+      <select id="model"><option value="120000">iPhone 13</option><option value="165000">iPhone 14 Pro</option><option value="78000">Samsung Galaxy S21</option><option value="42000">Samsung Galaxy A54</option><option value="28000">Xiaomi Redmi Note 12</option></select>
+      <label>Condition</label>
+      <div class="cond" id="cond"><button data-m="1">Like new</button><button data-m=".8" class="on">Good</button><button data-m=".55">Cracked</button></div>
+      <div class="value"><span style="color:var(--mut);font-size:14px">Estimated value</span><b id="val">LKR 96,000</b></div>
+    </div>
+    <div class="panel">
+      <div class="eyebrow">Repairs</div><h3>Fixed while you wait</h3><p>Genuine parts, trained technicians and a 3-month repair warranty.</p>
+      <div class="repairs">
+        <div><b>Screen replacement</b><span>Most models</span><em>~ 45 minutes</em></div>
+        <div><b>Battery swap</b><span>Restore full day battery</span><em>~ 30 minutes</em></div>
+        <div><b>Charging port</b><span>Cleaning or replacement</span><em>~ 40 minutes</em></div>
+        <div><b>Water damage</b><span>Free diagnosis</span><em>Same day</em></div>
+      </div>
+      <a class="btn btn-line" href="#" onclick="toast('Demo: booking form');return false" style="margin-top:18px;width:100%">Book a repair</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="visit" style="padding-top:0">
+  <div class="wrap"><div class="store">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1573152143286-0c422b4d2175?auto=format&fit=crop&w=1400&q=70" alt="People using phones"></div>
+    <div class="in"><div class="eyebrow">Visit our store</div><h2>Try before you buy</h2><p>Main Street, Kurunegala (demo address). Open every day 9 am – 8 pm. Free tempered glass with every phone.</p><a class="btn btn-acc" href="#" onclick="toast('Demo: opens Google Maps');return false">Get directions</a></div>
+  </div></div>
+</section>
+<footer><div class="wrap"><span>PhoneHub · Demo mobile shop website</span><span>© 2026</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+const U=id=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=500&q=70`;
+const phones=[
+ {n:'Apple iPhone 17',s:'256 GB · 6.3"',p:389000,b:'apple',img:'1512941937669-90a1b58e7e9c',c:['#1d1d1f','#e3e4e6','#b9c9e0'],st:'In stock'},
+ {n:'Samsung Galaxy A56',s:'256 GB · 6.7"',p:129900,b:'samsung',img:'1592890288564-76628a30a657',c:['#2b2b2f','#c8d7e4','#e5c7d6'],st:'In stock'},
+ {n:'Xiaomi Redmi Note 14',s:'256 GB · 6.67"',p:74900,b:'xiaomi',img:'1598327105666-5b89351aff97',c:['#1f2a44','#dfe6ef'],st:'Hot deal'},
+ {n:'iPhone 14 · Pre-owned',s:'128 GB · Grade A',p:159000,b:'used apple',img:'1580910051074-3eb694886505',c:['#3a3a3c','#f2f2f2'],st:'Certified'},
+ {n:'Samsung Galaxy S25',s:'256 GB · 6.2"',p:289000,b:'samsung',img:'1512428559087-560fa5ceab42',c:['#1c2331','#d9dde3','#a9c3b8'],st:'In stock'},
+ {n:'Xiaomi 15T',s:'512 GB · 6.8"',p:189000,b:'xiaomi',img:'1511707171634-5f897ff02aa9',c:['#111','#8aa1b1'],st:'New'},
+ {n:'Galaxy S23 · Pre-owned',s:'256 GB · Grade A',p:139000,b:'used samsung',img:'1585060544812-6b45742d762f',c:['#222','#e8e2d6'],st:'Certified'},
+ {n:'Apple iPhone 16e',s:'128 GB · 6.1"',p:219000,b:'apple',img:'1572016047668-5b5e909e1605',c:['#1d1d1f','#f4f4f4'],st:'In stock'}
+];
+const fmt=n=>'LKR '+n.toLocaleString('en-US');
+document.getElementById('grid').innerHTML=phones.map(p=>`
+ <div class="ph-card" data-b="${p.b}">
+  <div class="ph"><img loading="lazy" src="${U(p.img)}" alt="${p.n}" onerror="this.classList.add('broken')"><span class="stock">${p.st}</span></div>
+  <h3>${p.n}</h3><small>${p.s}</small>
+  <div class="swatch">${p.c.map((c,i)=>`<i style="background:${c}" class="${i?'':'on'}"></i>`).join('')}</div>
+  <div class="row"><div><b>${fmt(p.p)}</b><small>or ${fmt(Math.round(p.p/12/100)*100)}/mo</small></div><button class="buy" onclick="toast('Added ${p.n} to cart')">Buy</button></div>
+ </div>`).join('');
+document.querySelectorAll('.brands button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.brands button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.ph-card').forEach(c=>c.classList.toggle('hide',b.dataset.b!=='all'&&!c.dataset.b.split(' ').includes(b.dataset.b)));
+}));
+document.addEventListener('click',e=>{if(e.target.matches('.swatch i')){e.target.parentNode.querySelectorAll('i').forEach(i=>i.classList.toggle('on',i===e.target));}});
+let mult=.8;
+function val(){document.getElementById('val').textContent=fmt(Math.round(+model.value*mult/500)*500);}
+model.addEventListener('change',val);
+document.querySelectorAll('#cond button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#cond button').forEach(x=>x.classList.toggle('on',x===b));mult=+b.dataset.m;val();}));
+val();
+</script>
+<style>@media(max-width:760px){.nav-cta{display:none!important}}</style>
+</body>
+</html>

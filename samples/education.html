@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Horizon Institute — Courses &amp; Admissions (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--blue:#1d4ed8;--blue-d:#172554;--sky:#eff4ff;--yel:#fbbf24;--ink:#0f172a;--mut:#64748b;--nav-bg:#fff}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:#fff}
+header{position:sticky;top:0;z-index:40;background:#fff;border-bottom:1px solid #e8edf5}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;position:relative}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;line-height:1}
+.brand svg{flex-shrink:0}
+.brand small{display:block;font-size:11px;font-weight:600;color:var(--mut);letter-spacing:.04em;margin-top:3px}
+.nav-links{display:flex;gap:26px;font-size:14px;font-weight:600;color:#334155}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:14px 24px;border-radius:12px;transition:.2s}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:#1e40af}
+.btn-yel{background:var(--yel);color:var(--ink)}
+.btn-line{border:1.5px solid #cbd5e1}
+
+.hero{background:linear-gradient(180deg,var(--sky),#fff)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:60px 0 70px}
+.intake{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid #dbe4f3;border-radius:999px;padding:6px 14px 6px 6px;font-size:13px;font-weight:600}
+.intake b{background:var(--yel);border-radius:999px;padding:4px 10px;font-size:12px}
+h1{font-size:clamp(38px,5.4vw,64px);line-height:1.04;letter-spacing:-.035em;margin:20px 0 16px}
+h1 em{font-style:normal;color:var(--blue);position:relative}
+h1 em::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:var(--yel);opacity:.45;z-index:-1;border-radius:4px}
+.hero p{font-size:17px;color:var(--mut);line-height:1.65;max-width:520px}
+.hero .cta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.accr{display:flex;gap:18px;margin-top:34px;font-size:13px;color:var(--mut);align-items:center;flex-wrap:wrap}
+.accr span{display:flex;align-items:center;gap:6px;font-weight:600}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.collage .ph{border-radius:24px;--ph:#dbe4f3}
+.collage .ph:first-child{grid-row:span 2;aspect-ratio:3/5}
+.collage .ph:not(:first-child){aspect-ratio:1}
+.badge{position:absolute;left:-20px;bottom:40px;background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 20px 40px rgba(15,23,42,.14);display:flex;gap:12px;align-items:center}
+.badge i{width:44px;height:44px;border-radius:12px;background:#dcfce7;display:grid;place-items:center;font-style:normal;font-size:20px}
+.badge b{display:block;font-size:20px}.badge small{color:var(--mut);font-size:12px}
+
+.stats{background:var(--blue-d);color:#fff}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.stats div{padding:34px 10px}
+.stats b{display:block;font-size:40px;letter-spacing:-.03em;color:var(--yel)}
+.stats span{font-size:14px;opacity:.8}
+
+section.block{padding:90px 0}
+.eyebrow{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
+h2{font-size:clamp(30px,4vw,44px);letter-spacing:-.03em;line-height:1.1;margin-top:10px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.tabs{display:flex;background:var(--sky);padding:5px;border-radius:14px;gap:4px;flex-wrap:wrap}
+.tabs button{padding:10px 16px;border-radius:10px;font-weight:700;font-size:14px;color:var(--mut)}
+.tabs button.on{background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(29,78,216,.12)}
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.course{border:1px solid #e5eaf2;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.25s;background:#fff}
+.course:hover{box-shadow:0 22px 44px rgba(15,23,42,.08);transform:translateY(-4px)}
+.course .ph{aspect-ratio:16/9;--ph:#e0e7ff}
+.course .body{padding:20px;display:flex;flex-direction:column;flex:1}
+.course .lvl{font-size:12px;font-weight:700;color:var(--blue);background:var(--sky);align-self:flex-start;padding:5px 10px;border-radius:8px}
+.course h3{font-size:19px;margin:12px 0 8px;letter-spacing:-.01em}
+.course p{font-size:14px;color:var(--mut);line-height:1.55}
+.course .meta{display:flex;gap:14px;font-size:13px;color:var(--mut);margin-top:auto;padding-top:16px;border-top:1px dashed #e2e8f0;margin-top:18px}
+.course .meta b{color:var(--ink)}
+.course.hide{display:none}
+
+.why{background:var(--sky)}
+.why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why .ph{border-radius:28px;aspect-ratio:5/4;--ph:#c7d2fe}
+.feat{display:grid;gap:16px;margin-top:28px}
+.feat div{display:flex;gap:16px;background:#fff;border-radius:18px;padding:18px}
+.feat i{width:44px;height:44px;border-radius:12px;background:var(--blue);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;flex-shrink:0}
+.feat b{display:block;font-size:16px}.feat span{font-size:14px;color:var(--mut)}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.q{border:1px solid #e5eaf2;border-radius:22px;padding:24px}
+.q p{line-height:1.65;color:#334155}
+.q .who{display:flex;gap:12px;align-items:center;margin-top:18px;font-size:14px}
+.q .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#60a5fa);color:#fff;display:grid;place-items:center;font-weight:800}
+.q .who small{display:block;color:var(--mut)}
+.stars{color:#f59e0b;letter-spacing:2px;margin-bottom:10px}
+
+.apply{background:var(--blue);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:44px;position:relative;overflow:hidden}
+.apply::before{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.apply p{opacity:.85;margin-top:12px;line-height:1.6}
+.count{display:flex;gap:10px;margin-top:24px}
+.count div{background:rgba(255,255,255,.12);border-radius:14px;padding:12px 14px;text-align:center;min-width:70px}
+.count b{display:block;font-size:26px}.count small{font-size:11px;opacity:.8;text-transform:uppercase;letter-spacing:.08em}
+.apply form{display:grid;gap:12px;position:relative}
+.apply input,.apply select{font:inherit;padding:15px 16px;border-radius:12px;border:0;outline:none;width:100%}
+footer{padding:44px 0 70px;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  .hero .wrap,.why .wrap,.apply{grid-template-columns:1fr}
+  .courses,.quotes{grid-template-columns:1fr 1fr}
+  .stats .wrap{grid-template-columns:1fr 1fr}
+  .badge{left:10px}
+  .apply{padding:32px 22px;border-radius:24px}
+  section.block{padding:60px 0}
+}
+@media (max-width:600px){.courses,.quotes{grid-template-columns:1fr}.hero .wrap{padding:36px 0 50px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><svg width="38" height="38" viewBox="0 0 38 38"><rect width="38" height="38" rx="11" fill="#1d4ed8"/><path d="M8 24a11 11 0 0 1 22 0" stroke="#fbbf24" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M6 28h26" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg><span>Horizon Institute<small>OF TECHNOLOGY &amp; BUSINESS</small></span></a>
+    <nav class="nav-links"><a href="#courses">Courses</a><a href="#why">Why us</a><a href="#stories">Student stories</a><a href="#apply">Admissions</a></nav>
+    <a class="btn btn-blue nav-cta" href="#apply" style="padding:11px 18px">Apply now</a>
+    <button class="burger" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="intake"><b>OPEN</b>January 2027 intake · Limited seats</span>
+      <h1>Build the career you <em>actually want.</em></h1>
+      <p>Industry-focused diplomas and degrees in IT, business and design, taught by people who work in the field. Weekday and weekend batches.</p>
+      <div class="cta"><a class="btn btn-blue" href="#courses">Explore courses</a><a class="btn btn-line" href="#" onclick="toast('Demo: downloads prospectus');return false">Download prospectus</a></div>
+      <div class="accr"><span>✓ Recognised qualifications</span><span>✓ Payment plans</span><span>✓ Job placement support</span></div>
+    </div>
+    <div class="collage">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=70" alt="Students laughing around a laptop"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1627556704353-016baeb12c79?auto=format&fit=crop&w=500&q=70" alt="Graduates in caps and gowns"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1718327453695-4d32b94c90a4?auto=format&fit=crop&w=500&q=70" alt="Library"></div>
+      <div class="badge"><i>🎓</i><div><b>92%</b><small>Graduates employed in 6 months</small></div></div>
+    </div>
+  </div>
+</section>
+<div class="stats"><div class="wrap"><div><b>4,500+</b><span>Alumni</span></div><div><b>28</b><span>Programmes</span></div><div><b>60+</b><span>Industry partners</span></div><div><b>15 yrs</b><span>Of teaching</span></div></div></div>
+
+<section class="block" id="courses">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow">Programmes</div><h2>Find your course</h2></div>
+      <div class="tabs"><button class="on" data-l="all">All</button><button data-l="found">Foundation</button><button data-l="dip">Diploma</button><button data-l="deg">Degree</button><button data-l="short">Short courses</button></div>
+    </div>
+    <div class="courses">
+      <div class="course" data-l="deg"><div class="ph"><img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Degree</span><h3>BSc (Hons) Software Engineering</h3><p>Full-stack development, cloud and DevOps with real client projects.</p><div class="meta"><span>⏱ <b>3 years</b></span><span>📅 <b>Jan / Jul</b></span></div></div></div>
+      <div class="course" data-l="dip"><div class="ph"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Diploma</span><h3>Diploma in Business Management</h3><p>Marketing, finance and leadership for tomorrow's managers.</p><div class="meta"><span>⏱ <b>1 year</b></span><span>📅 <b>Every quarter</b></span></div></div></div>
+      <div class="course" data-l="short"><div class="ph"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Short course</span><h3>Graphic &amp; UI Design</h3><p>Figma, branding and social media design in 12 hands-on weeks.</p><div class="meta"><span>⏱ <b>12 weeks</b></span><span>📅 <b>Weekends</b></span></div></div></div>
+      <div class="course" data-l="found"><div class="ph"><img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Foundation</span><h3>Foundation in IT &amp; Business</h3><p>The perfect start after A/Ls, leading into our diplomas and degrees.</p><div class="meta"><span>⏱ <b>6 months</b></span><span>📅 <b>Jan / Jul</b></span></div></div></div>
+      <div class="course" data-l="deg"><div class="ph"><img src="https://images.unsplash.com/photo-1758270704763-22072a90d3b6?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Degree</span><h3>BSc (Hons) Data Science &amp; AI</h3><p>Python, machine learning and analytics for a data-driven world.</p><div class="meta"><span>⏱ <b>3 years</b></span><span>📅 <b>Jan</b></span></div></div></div>
+      <div class="course" data-l="short"><div class="ph"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=700&q=70" alt=""></div><div class="body"><span class="lvl">Short course</span><h3>Spoken English &amp; Presentation</h3><p>Confidence for interviews, meetings and public speaking.</p><div class="meta"><span>⏱ <b>8 weeks</b></span><span>📅 <b>Evenings</b></span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block why" id="why">
+  <div class="wrap">
+    <div class="ph"><img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?auto=format&fit=crop&w=900&q=70" alt="Students walking together"></div>
+    <div>
+      <div class="eyebrow">Why Horizon</div><h2>More than a certificate</h2>
+      <div class="feat">
+        <div><i>01</i><span><b>Learn from practitioners</b>Lecturers who build, sell and lead every day.</span></div>
+        <div><i>02</i><span><b>Small classes</b>Around 30 students per batch, so no one gets lost.</span></div>
+        <div><i>03</i><span><b>Career centre</b>CV clinics, mock interviews and internship placements.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="stories">
+  <div class="wrap">
+    <div class="eyebrow">Student stories</div><h2>Hear it from our graduates</h2>
+    <div class="quotes">
+      <div class="q"><div class="stars">★★★★★</div><p>"The final-year project with a real company landed me my first job before I even graduated."</p><div class="who"><span class="av">N</span><span><b>Nimasha</b><small>Software Engineer</small></span></div></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Weekend classes meant I could keep working while finishing my diploma."</p><div class="who"><span class="av">R</span><span><b>Ravindu</b><small>Marketing Executive</small></span></div></div>
+      <div class="q"><div class="stars">★★★★★</div><p>"Supportive lecturers and a great library. I felt ready for my master's."</p><div class="who"><span class="av">S</span><span><b>Shalini</b><small>Data Analyst</small></span></div></div>
+    </div>
+    <p style="font-size:12px;color:var(--mut);margin-top:14px">Sample testimonials for demonstration.</p>
+  </div>
+</section>
+
+<section class="block" id="apply" style="padding-top:0">
+  <div class="wrap apply">
+    <div><h2 style="color:#fff">January intake closes soon</h2><p>Reserve your seat today. Our admissions team will call you to help pick the right course.</p>
+      <div class="count" id="count"><div><b id="d">00</b><small>Days</small></div><div><b id="h">00</b><small>Hours</small></div><div><b id="m">00</b><small>Mins</small></div></div>
+    </div>
+    <form data-demo="Inquiry sent! (Demo: nothing submitted)">
+      <input required placeholder="Student name"><input required type="tel" placeholder="Mobile number">
+      <select><option>Interested course…</option><option>BSc Software Engineering</option><option>BSc Data Science &amp; AI</option><option>Diploma in Business</option><option>Short courses</option></select>
+      <button class="btn btn-yel" type="submit" style="justify-content:center">Send inquiry</button>
+    </form>
+  </div>
+</section>
+<footer><div class="wrap"><span>Horizon Institute · Demo education website</span><span>© 2026</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.course').forEach(c=>c.classList.toggle('hide',b.dataset.l!=='all'&&c.dataset.l!==b.dataset.l));
+}));
+// countdown to a rolling date ~40 days out so the demo never expires
+const end=Date.now()+ (40*864e5) - (new Date().getHours()*36e5);
+function tick(){let s=Math.max(0,(end-Date.now())/1000);
+  const p=n=>String(Math.floor(n)).padStart(2,'0');
+  d.textContent=p(s/86400);h.textContent=p(s%86400/3600);m.textContent=p(s%3600/60);}
+tick();setInterval(tick,30000);
+</script>
+<style>@media(max-width:760px){.nav-cta{display:none!important}}</style>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palm Cove Villas — Boutique Beach Stay (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--sea:#0e4f5c;--sea-d:#0a3740;--sand:#f4efe6;--gold:#c79a5b;--ink:#1d2b2e;--mut:#6d7b7d;--nav-bg:#0a3740}
+body{font-family:Jost,system-ui,sans-serif;background:var(--sand);color:var(--ink)}
+.serif,h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500}
+header{position:absolute;top:0;left:0;right:0;z-index:40;color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px;position:relative}
+.brand{font-family:"Cormorant Garamond";font-size:28px;font-weight:600;letter-spacing:.02em}
+.brand small{display:block;font-family:Jost;font-size:10px;letter-spacing:.35em;text-transform:uppercase;opacity:.8;margin-top:-2px}
+.nav-links{display:flex;gap:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:.2s;border-radius:2px}
+.btn-gold{background:var(--gold);color:#fff}.btn-gold:hover{background:#b3874a}
+.btn-line{border:1px solid rgba(255,255,255,.6);color:#fff}
+
+.hero{position:relative;height:min(100vh,820px);min-height:600px;color:#fff;display:flex;align-items:center;--ph:var(--sea)}
+.hero .ph{position:absolute;inset:0}.hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,55,64,.5),rgba(10,55,64,.15) 45%,rgba(10,55,64,.7))}
+.hero .wrap{position:relative;text-align:center}
+.hero small{font-size:13px;letter-spacing:.4em;text-transform:uppercase}
+.hero h1{font-size:clamp(52px,9vw,120px);line-height:.92;margin:18px 0}
+.hero h1 i{font-style:italic;color:#f1d7ac}
+.hero p{font-size:17px;opacity:.9;max-width:520px;margin:0 auto}
+
+.booking{position:relative;z-index:5;margin-top:-56px}
+.booking form{background:#fff;box-shadow:0 30px 60px rgba(10,55,64,.15);display:grid;grid-template-columns:repeat(4,1fr) auto;align-items:stretch}
+.booking label{display:flex;flex-direction:column;gap:6px;padding:18px 22px;border-right:1px solid #ece6da;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.booking input,.booking select{border:0;font:inherit;font-size:16px;letter-spacing:0;text-transform:none;color:var(--ink);background:none;outline:none;padding:0;width:100%}
+.booking .total{display:flex;flex-direction:column;justify-content:center;padding:0 22px;background:var(--sea-d);color:#fff;min-width:210px}
+.booking .total small{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.booking .total b{font-family:"Cormorant Garamond";font-size:30px;font-weight:600}
+.booking .total button{margin-top:6px;background:var(--gold);color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:10px}
+
+section.block{padding:100px 0}
+.center{text-align:center;max-width:680px;margin:0 auto 50px}
+.eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+h2{font-size:clamp(38px,5vw,62px);line-height:1.02;margin-top:12px;color:var(--sea-d)}
+.center p{color:var(--mut);line-height:1.8;margin-top:16px}
+
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.room{background:#fff;transition:.3s}
+.room:hover{box-shadow:0 30px 60px rgba(10,55,64,.12)}
+.room .ph{aspect-ratio:4/3;--ph:#cfdcd9}
+.room:hover img{transform:scale(1.05)}
+.room .b{padding:24px}
+.room h3{font-size:30px;color:var(--sea-d)}
+.room .am{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--mut);margin:10px 0 18px}
+.room .row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ece6da;padding-top:16px}
+.room .row b{font-family:"Cormorant Garamond";font-size:26px;font-weight:600}
+.room .row small{color:var(--mut)}
+.room .sel{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--sea);border-bottom:1px solid var(--gold);padding-bottom:3px}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:10px}
+.gal .ph{cursor:zoom-in;--ph:#cfdcd9}
+.gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal .ph:nth-child(4){grid-row:span 2}
+.gal .ph:hover img{transform:scale(1.05)}
+
+.exp{background:var(--sea-d);color:#fff}
+.exp h2{color:#fff}
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.exp-grid div{background:var(--sea-d);padding:34px 26px}
+.exp-grid b{font-family:"Cormorant Garamond";font-size:26px;font-weight:500;display:block;margin:14px 0 8px}
+.exp-grid p{font-size:14px;opacity:.7;line-height:1.6}
+.exp-grid i{font-style:normal;font-size:26px;color:var(--gold)}
+
+.review{max-width:820px;margin:0 auto;text-align:center}
+.review blockquote{font-family:"Cormorant Garamond";font-style:italic;font-size:clamp(26px,3.4vw,38px);line-height:1.3;color:var(--sea-d);margin:0}
+.review .who{margin-top:24px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.dots button{width:10px;height:10px;border-radius:50%;background:#d6cfc2}
+.dots button.on{background:var(--gold);width:26px;border-radius:5px}
+
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(5,25,30,.92);display:grid;place-items:center;padding:30px;opacity:0;pointer-events:none;transition:.25s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-height:85vh;max-width:100%;object-fit:contain}
+.lightbox button{position:absolute;top:18px;right:24px;color:#fff;font-size:36px}
+footer{background:var(--sea-d);color:rgba(255,255,255,.7);padding:50px 0 70px;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  .booking form{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .booking label{min-width:0;padding:14px 16px}
+  .booking label{border-bottom:1px solid #ece6da}
+  .booking .total{grid-column:1/-1;padding:18px 22px;flex-direction:row;align-items:center;justify-content:space-between}
+  .booking .total button{margin:0;padding:12px 16px}
+  .rooms{grid-template-columns:1fr}
+  .exp-grid{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .gal .ph:nth-child(4){grid-row:auto}
+  section.block{padding:64px 0}
+  .booking{margin-top:-40px}
+}
+@media (max-width:520px){.exp-grid{grid-template-columns:1fr}.hero{min-height:520px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#">Palm Cove<small>Villas · Mirissa</small></a>
+    <nav class="nav-links"><a href="#rooms">Rooms</a><a href="#gallery">Gallery</a><a href="#exp">Experiences</a></nav>
+    <a class="btn btn-line nav-cta" href="#book" style="padding:12px 20px">Book direct</a>
+    <button class="burger" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="ph"><img src="https://images.unsplash.com/photo-1743592323402-2a8392831f44?auto=format&fit=crop&w=1900&q=70" alt="Resort at sunset"></div>
+  <div class="wrap">
+    <small>Boutique beach villas</small>
+    <h1>Slow days by <i>the sea</i></h1>
+    <p>Six private villas steps from a quiet beach on the south coast, with a pool, a garden and breakfast made to order.</p>
+  </div>
+</section>
+
+<div class="wrap booking" id="book">
+  <form id="bk">
+    <label>Check in<input type="date" id="cin"></label>
+    <label>Check out<input type="date" id="cout"></label>
+    <label>Guests<select id="guests"><option>1 Adult</option><option selected>2 Adults</option><option>2 Adults, 1 Child</option><option>4 Adults</option></select></label>
+    <label>Villa<select id="roomSel"><option value="85">Garden Villa</option><option value="130" selected>Pool Villa</option><option value="210">Ocean Suite</option></select></label>
+    <div class="total"><div><small id="nights">3 nights</small><b id="total">$390</b></div><button type="submit">Check availability</button></div>
+  </form>
+</div>
+
+<section class="block" id="rooms">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Stay</div><h2>Our villas</h2><p>Each villa is designed with local timber, handloom fabrics and big windows that let the breeze in.</p></div>
+    <div class="rooms">
+      <div class="room"><div class="ph"><img src="https://images.unsplash.com/photo-1657349226767-66c983d7df39?auto=format&fit=crop&w=800&q=70" alt="Hotel room with bed"></div><div class="b"><h3>Garden Villa</h3><div class="am"><span>🛏 King bed</span><span>🌿 Garden view</span><span>❄ A/C</span></div><div class="row"><div><b>$85</b> <small>/ night</small></div><a class="sel" href="#book" data-v="85">Select</a></div></div></div>
+      <div class="room"><div class="ph"><img src="https://images.unsplash.com/photo-1709755502254-3a71dab6fa58?auto=format&fit=crop&w=800&q=70" alt="Pool deck with loungers"></div><div class="b"><h3>Pool Villa</h3><div class="am"><span>🛏 King bed</span><span>🏊 Plunge pool</span><span>☕ Terrace</span></div><div class="row"><div><b>$130</b> <small>/ night</small></div><a class="sel" href="#book" data-v="130">Select</a></div></div></div>
+      <div class="room"><div class="ph"><img src="https://images.unsplash.com/photo-1709755514313-a6a18fc5e81f?auto=format&fit=crop&w=800&q=70" alt="Living room with chandelier"></div><div class="b"><h3>Ocean Suite</h3><div class="am"><span>🛏 2 bedrooms</span><span>🌊 Sea view</span><span>🍽 Living room</span></div><div class="row"><div><b>$210</b> <small>/ night</small></div><a class="sel" href="#book" data-v="210">Select</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Gallery</div><h2>A glimpse of Palm Cove</h2></div>
+    <div class="gal">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1645839450773-e52355b2ac79?auto=format&fit=crop&w=1000&q=70" alt="Beach with palm trees"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1709755545093-bc5bba511227?auto=format&fit=crop&w=600&q=70" alt="Patio dining area"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1607672996533-98ec2fb71625?auto=format&fit=crop&w=600&q=70" alt="Wooden bridge over the sea"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1585839402483-d3851cdf6866?auto=format&fit=crop&w=600&q=70" alt="Wicker armchair"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1704797390597-24dea42ffea8?auto=format&fit=crop&w=600&q=70" alt="Beach restaurant"></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1709755558667-07d6405604dd?auto=format&fit=crop&w=600&q=70" alt="Villa interior"></div>
+    </div>
+  </div>
+</section>
+
+<section class="block exp" id="exp">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Experiences</div><h2>More than a place to sleep</h2></div>
+    <div class="exp-grid">
+      <div><i>〰</i><b>Whale watching</b><p>Early morning boat trips to see blue whales and dolphins (seasonal).</p></div>
+      <div><i>✺</i><b>Cooking class</b><p>Learn five Sri Lankan curries with our chef, then eat them for lunch.</p></div>
+      <div><i>☾</i><b>Beach dinners</b><p>Candle-lit seafood dinner on the sand, just for two.</p></div>
+      <div><i>✧</i><b>Ayurveda spa</b><p>Traditional oils and treatments in our garden pavilion.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap review">
+    <div class="eyebrow">Guest stories</div>
+    <blockquote id="rq">"The kind of place you plan to stay three nights and end up staying seven."</blockquote>
+    <div class="who" id="rw">Sarah &amp; Tom · United Kingdom</div>
+    <div class="dots" id="dots"><button class="on"></button><button></button><button></button></div>
+    <p style="font-size:12px;color:var(--mut);margin-top:16px">Sample reviews for demonstration.</p>
+  </div>
+</section>
+<footer><div class="wrap"><span class="serif" style="font-size:22px;color:#fff">Palm Cove Villas</span><span>Demo hotel website · © 2026</span></div></footer>
+
+<div class="lightbox" id="lb"><button aria-label="Close">×</button><img id="lbImg" alt=""></div>
+
+<script src="shared.js"></script>
+<script>
+// booking estimate
+const d=n=>{const x=new Date();x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
+cin.value=d(14);cout.value=d(17);
+function est(){
+  const n=Math.max(1,Math.round((new Date(cout.value)-new Date(cin.value))/864e5)||1);
+  nights.textContent=n+(n>1?' nights':' night');
+  total.textContent='$'+(n*+roomSel.value).toLocaleString('en-US');
+}
+[cin,cout,roomSel].forEach(el=>el.addEventListener('change',est));est();
+bk.addEventListener('submit',e=>{e.preventDefault();toast('Available! (Demo: no booking made)')});
+document.querySelectorAll('.sel').forEach(a=>a.addEventListener('click',()=>{roomSel.value=a.dataset.v;est();}));
+// lightbox
+document.querySelectorAll('.gal img').forEach(img=>img.parentNode.addEventListener('click',()=>{
+  if(img.classList.contains('broken'))return;lbImg.src=img.src.replace(/w=\d+/,'w=1600');lb.classList.add('open');}));
+lb.addEventListener('click',()=>lb.classList.remove('open'));
+// reviews
+const R=[['"The kind of place you plan to stay three nights and end up staying seven."','Sarah & Tom · United Kingdom'],
+['"Breakfast by the pool, whales in the morning, curry class in the afternoon. Perfect."','Nuwan & family · Colombo'],
+['"Quiet, beautiful and the staff remembered everything we liked."','Mia · Germany']];
+let ri=0;const dots=[...document.querySelectorAll('#dots button')];
+function show(i){ri=i;rq.textContent=R[i][0];rw.textContent=R[i][1];dots.forEach((b,j)=>b.classList.toggle('on',j===i));}
+dots.forEach((b,i)=>b.addEventListener('click',()=>show(i)));
+setInterval(()=>show((ri+1)%R.length),6000);
+</script>
+<style>@media(max-width:760px){.nav-cta{display:none!important}}</style>
+</body>
+</html>

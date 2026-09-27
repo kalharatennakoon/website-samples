@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SunPeak Solar — Rooftop Solar Installers (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--navy:#0b1f3a;--navy2:#132d52;--amber:#ffb020;--sky:#f3f6fb;--mut:#62708a;--green:#0f9d58;--nav-bg:#0b1f3a}
+body{font-family:Inter,system-ui,sans-serif;background:#fff;color:var(--navy)}
+h1,h2,h3,.gro{font-family:"Space Grotesk",Inter,sans-serif}
+header{position:sticky;top:0;z-index:40;background:var(--navy);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;position:relative}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Space Grotesk";font-weight:700;font-size:20px}
+.brand i{width:30px;height:30px;border-radius:9px;background:var(--amber);display:grid;place-items:center;color:var(--navy);font-style:normal}
+.nav-links{display:flex;gap:28px;font-size:14px;opacity:.85}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:14px 24px;border-radius:12px;transition:.2s}
+.btn-amber{background:var(--amber);color:var(--navy)}.btn-amber:hover{background:#ffc24d}
+.btn-line{border:1px solid rgba(255,255,255,.3);color:#fff}
+
+.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:64px 0 90px}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(255,176,32,.4);padding:7px 12px;border-radius:999px}
+.hero h1{font-size:clamp(40px,5.6vw,68px);line-height:1.02;letter-spacing:-.03em;margin:18px 0}
+.hero h1 span{color:var(--amber)}
+.hero p{font-size:17px;line-height:1.6;opacity:.8;max-width:500px}
+.hero .cta{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.trust{display:flex;gap:26px;margin-top:36px;font-size:13px;opacity:.75;flex-wrap:wrap}
+.trust b{display:block;font-family:"Space Grotesk";font-size:26px;color:#fff;opacity:1}
+.hero .ph{border-radius:28px;aspect-ratio:4/5;--ph:var(--navy2);box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.hero .img-wrap{position:relative}
+.chip{position:absolute;background:#fff;color:var(--navy);border-radius:16px;padding:14px 16px;box-shadow:0 18px 40px rgba(0,0,0,.25);font-size:12px;color:var(--mut)}
+.chip b{display:block;font-family:"Space Grotesk";font-size:20px;color:var(--navy)}
+.chip.a{left:-24px;top:40px}.chip.b{right:-16px;bottom:48px}
+.chip.b b{color:var(--green)}
+
+section.block{padding:90px 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d48806}
+h2{font-size:clamp(30px,4.2vw,46px);letter-spacing:-.03em;line-height:1.08;margin-top:10px}
+.sub{color:var(--mut);line-height:1.6;margin-top:12px;max-width:560px}
+
+.calc-sec{background:var(--sky)}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.card{background:#fff;border-radius:24px;padding:30px;box-shadow:0 14px 40px rgba(11,31,58,.06)}
+.lbl{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--mut)}
+.lbl output{font-family:"Space Grotesk";font-size:34px;font-weight:700;color:var(--navy)}
+input[type=range]{width:100%;margin:22px 0 8px;accent-color:var(--amber);height:6px}
+.scale{display:flex;justify-content:space-between;font-size:12px;color:var(--mut)}
+.seg{display:flex;background:var(--sky);border-radius:12px;padding:4px;margin-top:26px}
+.seg button{flex:1;padding:10px;border-radius:9px;font-size:14px;font-weight:600;color:var(--mut)}
+.seg button.on{background:#fff;color:var(--navy);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.res div{background:var(--sky);border-radius:16px;padding:18px}
+.res small{display:block;font-size:12px;color:var(--mut)}
+.res b{font-family:"Space Grotesk";font-size:28px;letter-spacing:-.02em}
+.res .big{grid-column:1/-1;background:var(--navy);color:#fff}
+.res .big small{color:#9fb0cc}.res .big b{color:var(--amber);font-size:40px}
+.bar{height:10px;border-radius:5px;background:#e2e8f2;overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),#ffd166);transition:width .3s}
+.note{font-size:12px;color:var(--mut);margin-top:14px}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+.step{border:1px solid #e3e8f0;border-radius:20px;padding:24px}
+.step .n{width:40px;height:40px;border-radius:12px;background:var(--navy);color:var(--amber);display:grid;place-items:center;font-family:"Space Grotesk";font-weight:700}
+.step h3{font-size:18px;margin:18px 0 8px}.step p{font-size:14px;color:var(--mut);line-height:1.55}
+
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:14px;margin-top:40px}
+.gallery .ph{border-radius:20px;--ph:#dfe6f0}
+.gallery .ph:first-child{grid-row:span 2}
+.gallery .cap{position:absolute;left:14px;bottom:14px;background:rgba(11,31,58,.85);color:#fff;font-size:12px;font-weight:600;padding:7px 11px;border-radius:9px}
+
+.faq{max-width:800px;margin:40px auto 0}
+.faq details{border-bottom:1px solid #e3e8f0;padding:20px 0}
+.faq summary{font-family:"Space Grotesk";font-weight:600;font-size:18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.faq summary::after{content:"+";font-size:24px;color:#d48806}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mut);line-height:1.6;margin-top:10px}
+
+.quote{background:var(--navy);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.quote p{opacity:.75;margin-top:12px;line-height:1.6}
+.quote form{display:grid;gap:12px}
+.quote input,.quote select{font:inherit;padding:15px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:var(--navy2);color:#fff;outline:none;width:100%}
+footer{padding:40px 0 70px;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:900px){
+  .hero .wrap,.calc,.quote{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px 160px}
+  .gallery .ph:first-child{grid-column:span 2;grid-row:auto}
+  .chip.a{left:10px}.chip.b{right:10px}
+  .quote{padding:32px 22px;border-radius:24px}
+  section.block{padding:60px 0}
+  .hero .wrap{padding:40px 0 60px}
+}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.hero .ph{aspect-ratio:1}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><i>☀</i>SunPeak Solar</a>
+    <nav class="nav-links"><a href="#calc">Savings</a><a href="#how">How it works</a><a href="#projects">Projects</a><a href="#faq">FAQ</a></nav>
+    <a class="btn btn-amber nav-cta" href="#quote" style="padding:10px 18px">Free quote</a>
+    <button class="burger" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">● Rooftop solar · Island-wide</span>
+      <h1>Cut your electricity bill by up to <span>90%</span></h1>
+      <p>We design, install and maintain rooftop solar for homes and businesses, and handle the net-metering paperwork for you.</p>
+      <div class="cta"><a class="btn btn-amber" href="#calc">Calculate my savings</a><a class="btn btn-line" href="#quote">Book a site visit</a></div>
+      <div class="trust"><div><b>500+</b>Rooftops</div><div><b>25 yr</b>Panel warranty</div><div><b>4.9★</b>Customer rating</div></div>
+    </div>
+    <div class="img-wrap">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1566838616631-f2618f74a6a2?auto=format&fit=crop&w=900&q=70" alt="House with solar panels on the roof"></div>
+      <div class="chip a"><b>5.0 kW</b>Installed in 2 days</div>
+      <div class="chip b"><b>−LKR 16,200</b>Monthly bill saved</div>
+    </div>
+  </div>
+</section>
+
+<section class="block calc-sec" id="calc">
+  <div class="wrap">
+    <div class="eyebrow">Savings calculator</div>
+    <h2>How much could you save?</h2>
+    <p class="sub">Move the slider to match your average monthly electricity bill.</p>
+    <div class="calc">
+      <div class="card">
+        <div class="lbl"><span>Monthly electricity bill</span><output id="billOut">LKR 18,000</output></div>
+        <input type="range" id="bill" min="5000" max="80000" step="1000" value="18000" aria-label="Monthly bill">
+        <div class="scale"><span>LKR 5,000</span><span>LKR 80,000</span></div>
+        <div class="seg" id="type"><button class="on" data-r="1">Home</button><button data-r="1.25">Business</button></div>
+        <p class="note">Roof facing south or west gets the best results. Our engineers confirm everything during a free site visit.</p>
+      </div>
+      <div class="card res">
+        <div><small>Recommended system</small><b id="kw">5.0 kW</b></div>
+        <div><small>Solar panels</small><b id="panels">10</b></div>
+        <div><small>Estimated cost</small><b id="cost">LKR 1.5M</b></div>
+        <div><small>Payback period</small><b id="payback">6.4 yrs</b></div>
+        <div class="big"><small>Estimated yearly savings</small><b id="save">LKR 194,400</b><div class="bar"><i id="barI" style="width:60%"></i></div></div>
+      </div>
+    </div>
+    <p class="note">Demo estimate only. Figures are illustrative, not a real quotation.</p>
+  </div>
+</section>
+
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>From quote to power in 4 steps</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Free site visit</h3><p>An engineer checks your roof, shading and meter.</p></div>
+      <div class="step"><div class="n">02</div><h3>Custom design</h3><p>We size the system to your bill and budget.</p></div>
+      <div class="step"><div class="n">03</div><h3>Installation</h3><p>Most homes are done in 1–2 days, neat and safe.</p></div>
+      <div class="step"><div class="n">04</div><h3>Net metering</h3><p>We handle the utility paperwork and switch-on.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Recent projects</div>
+    <h2>Rooftops we've powered</h2>
+    <div class="gallery">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1707247111552-aaf74241058b?auto=format&fit=crop&w=1000&q=70" alt="Commercial rooftop solar"><span class="cap">40 kW · Factory, Kurunegala</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1655300256335-beef51a914fe?auto=format&fit=crop&w=600&q=70" alt="Home with solar panels"><span class="cap">5 kW · Home</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1660330589257-813305a4a383?auto=format&fit=crop&w=600&q=70" alt="Installer on a roof"><span class="cap">Installation day</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1724041875334-0a6397111c7e?auto=format&fit=crop&w=600&q=70" alt="Solar panel close up"><span class="cap">Tier-1 panels</span></div>
+      <div class="ph"><img src="https://images.unsplash.com/photo-1658298775754-5839ffd434cc?auto=format&fit=crop&w=600&q=70" alt="Solar panels on a roof"><span class="cap">10 kW · Villa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block calc-sec" id="faq">
+  <div class="wrap">
+    <div style="text-align:center"><div class="eyebrow">FAQ</div><h2>Questions we hear a lot</h2></div>
+    <div class="faq">
+      <details open><summary>How long does installation take?</summary><p>Most home systems are installed in one or two days. Paperwork and switch-on usually take a few more weeks.</p></details>
+      <details><summary>Do you offer payment plans?</summary><p>Yes. We work with partner banks to offer easy monthly plans for homes and businesses.</p></details>
+      <details><summary>What happens on cloudy days?</summary><p>Panels still produce power in diffuse light, and you draw from the grid whenever you need extra.</p></details>
+      <details><summary>Is maintenance included?</summary><p>Every system includes free cleaning and a health check in the first year, plus remote monitoring.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="quote">
+  <div class="wrap quote">
+    <div><div class="eyebrow" style="color:var(--amber)">Free quote</div><h2>Book a free site visit</h2><p>Leave your details and an engineer will call within 24 hours to schedule a visit.</p></div>
+    <form data-demo="Request received! (Demo: nothing sent)">
+      <input required placeholder="Full name"><input required type="tel" placeholder="Phone number">
+      <select><option>Home</option><option>Business</option><option>Factory / large roof</option></select>
+      <input placeholder="City">
+      <button class="btn btn-amber" type="submit">Request my free visit</button>
+    </form>
+  </div>
+</section>
+<footer><div class="wrap"><span>☀ SunPeak Solar · Demo website</span><span>© 2026</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const fmt=n=>'LKR '+Math.round(n).toLocaleString('en-US');
+let rate=1;
+function calc(){
+  const bill=+$('bill').value*rate;
+  $('billOut').textContent=fmt(+$('bill').value);
+  const units=bill/45;                         // rough avg LKR per unit (illustrative)
+  const kw=Math.max(3,Math.round(units/120*2)/2);
+  const cost=kw*300000;
+  const save=bill*12*0.9;
+  $('kw').textContent=kw.toFixed(1)+' kW';
+  $('panels').textContent=Math.ceil(kw*1000/550);
+  $('cost').textContent='LKR '+(cost/1e6).toFixed(1)+'M';
+  $('payback').textContent=(cost/save).toFixed(1)+' yrs';
+  $('save').textContent=fmt(save);
+  $('barI').style.width=Math.min(100,save/1000000*100)+'%';
+}
+$('bill').addEventListener('input',calc);
+document.querySelectorAll('#type button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#type button').forEach(x=>x.classList.toggle('on',x===b));rate=+b.dataset.r;calc();
+}));
+calc();
+</script>
+<style>@media(max-width:760px){.nav-cta{display:none!important}}</style>
+</body>
+</html>

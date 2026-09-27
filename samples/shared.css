@@ -1,0 +1,38 @@
+/* Shared base for all sample sites */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+h1,h2,h3,h4,p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+
+/* Image frame: shows a soft tint if an image fails to load */
+.ph{position:relative;overflow:hidden;background:var(--ph,#e9e6e1)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,opacity .3s}
+.ph img.broken{opacity:0}
+
+/* Mobile nav */
+.burger{display:none;width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center}
+.burger span{display:block;width:18px;height:2px;background:currentColor;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:currentColor}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+@media (max-width:760px){
+  .burger{display:inline-flex}
+  .nav-links{display:none!important}
+  .nav-open .nav-links{display:flex!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0!important;padding:8px 20px 16px;background:var(--nav-bg,#fff);box-shadow:0 12px 24px rgba(0,0,0,.08);z-index:50}
+  .nav-open .nav-links a{padding:12px 0;border-bottom:1px solid rgba(127,127,127,.15)}
+}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:#111;color:#fff;font:600 14px/1.2 system-ui,sans-serif;padding:12px 18px;border-radius:999px;z-index:1000;transition:.25s;pointer-events:none;white-space:nowrap}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* Demo badge (hidden when shown inside the showcase) */
+.demo-badge{position:fixed;right:14px;bottom:14px;z-index:999;display:flex;align-items:center;gap:8px;background:#0a0a0a;color:#fff;font:600 12px/1 system-ui,sans-serif;padding:10px 14px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.demo-badge i{width:7px;height:7px;border-radius:50%;background:#4ade80}
+.in-showcase .demo-badge{display:none}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}

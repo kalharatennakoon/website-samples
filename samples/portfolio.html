@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amaya Perera — UI/UX Designer (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--ink:#111;--mut:#77756f;--bg:#fafaf8;--line:#e7e5df;--acc:#6d5dfc;--nav-bg:#fafaf8}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;z-index:40;background:rgba(250,250,248,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
+.logo{font-weight:800;font-size:20px;letter-spacing:-.03em}.logo b{color:var(--acc)}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--mut)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:13px 22px;border-radius:999px;transition:.2s}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:var(--acc)}
+.btn-line{border:1px solid var(--line);background:#fff}.btn-line:hover{border-color:var(--ink)}
+
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:999px;margin-bottom:24px}
+.avail i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #dcfce7}
+h1{font-size:clamp(40px,6vw,72px);line-height:1.02;letter-spacing:-.045em;font-weight:800}
+h1 span{color:#a9a69f}
+.lead{font-size:18px;line-height:1.6;color:var(--mut);max-width:520px;margin:22px 0 30px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.portrait{aspect-ratio:4/5;border-radius:28px;--ph:#e4dfff}
+.portrait-wrap{position:relative}
+.float{position:absolute;left:-28px;bottom:32px;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 20px 40px rgba(0,0,0,.1);font-size:13px;color:var(--mut)}
+.float b{display:block;font-size:22px;color:var(--ink);letter-spacing:-.03em}
+
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats div{padding:26px 0;font-size:13px;color:var(--mut)}
+.stats b{display:block;font-size:32px;color:var(--ink);letter-spacing:-.04em;font-weight:800}
+
+section.block{padding:84px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin-bottom:10px}
+h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.035em;line-height:1.1}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filters button{font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;transition:.2s}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.proj{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:.3s}
+.proj:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(0,0,0,.08)}
+.proj:hover img{transform:scale(1.04)}
+.proj .ph{aspect-ratio:16/10}
+.proj .meta{padding:18px 22px 20px;display:flex;justify-content:space-between;align-items:center}
+.proj h3{font-size:18px;letter-spacing:-.02em}
+.proj small{color:var(--mut);font-size:13px}
+.proj .go{width:40px;height:40px;border-radius:50%;background:#f2f1ed;display:grid;place-items:center;font-size:18px}
+.proj.hide{display:none}
+
+.xp{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.xp-list li{display:grid;grid-template-columns:120px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.xp-list time{font-size:13px;color:var(--mut);padding-top:3px}
+.xp-list b{font-size:17px}.xp-list p{color:var(--mut);font-size:14px;margin-top:4px;line-height:1.55}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.skills span{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#efedff;color:#4b3fd1}
+
+.contact{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact h2{color:#fff}.contact p{color:#b5b3ad;margin-top:14px;line-height:1.6}
+.contact form{display:grid;gap:12px}
+.contact input,.contact textarea{width:100%;font:inherit;font-size:15px;padding:15px 18px;border-radius:14px;border:1px solid #333;background:#1b1b1b;color:#fff;outline:none}
+.contact input:focus,.contact textarea:focus{border-color:var(--acc)}
+.contact .btn{justify-content:center;background:#fff;color:var(--ink)}
+footer{padding:36px 0 60px;color:var(--mut);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media (max-width:860px){
+  .hero .wrap,.xp,.contact{grid-template-columns:1fr}
+  .portrait-wrap{max-width:380px}
+  .float{left:12px}
+  .grid{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .contact{padding:32px 24px;border-radius:24px}
+  section.block{padding:60px 0}
+  .hero{padding:40px 0}
+  .xp-list li{grid-template-columns:1fr;gap:6px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">amaya<b>.</b></a>
+    <nav class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <a class="btn btn-dark nav-cta" href="#contact" style="padding:10px 18px">Let's talk</a>
+    <button class="burger" aria-label="Menu" style="margin-left:8px"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="avail"><i></i>Available for freelance work</div>
+      <h1>Designing calm, useful products <span>people enjoy using.</span></h1>
+      <p class="lead">I'm Amaya, a UI/UX designer in Colombo. I help startups and banks turn complicated flows into simple, friendly experiences.</p>
+      <div class="cta"><a class="btn btn-dark" href="#work">View my work →</a><a class="btn btn-line" href="#" onclick="toast('Demo: CV download');return false">Download CV</a></div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="ph portrait"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=70" alt="Portrait of a designer"></div>
+      <div class="float"><b>4.9 / 5</b>Client rating</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats"><div class="wrap">
+  <div><b>5+</b>Years experience</div><div><b>32</b>Projects shipped</div><div><b>14</b>Happy clients</div><div><b>3</b>Design awards</div>
+</div></div>
+
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Selected work</div><h2>Recent projects</h2></div>
+      <div class="filters" role="tablist">
+        <button class="on" data-f="all">All</button><button data-f="mobile">Mobile</button><button data-f="web">Web</button><button data-f="brand">Branding</button>
+      </div>
+    </div>
+    <div class="grid">
+      <a class="proj" data-cat="mobile" href="#" onclick="toast('Demo: opens case study');return false">
+        <div class="ph" style="--ph:#dcd6ff"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=70" alt="Mobile app on a phone"></div>
+        <div class="meta"><div><h3>Tea Estate Companion App</h3><small>Case study · Mobile · 2026</small></div><span class="go">↗</span></div>
+      </a>
+      <a class="proj" data-cat="web" href="#" onclick="toast('Demo: opens case study');return false">
+        <div class="ph" style="--ph:#d4f1ec"><img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=900&q=70" alt="Team working at computers"></div>
+        <div class="meta"><div><h3>Banking Onboarding Redesign</h3><small>UX research · Web · 2025</small></div><span class="go">↗</span></div>
+      </a>
+      <a class="proj" data-cat="brand" href="#" onclick="toast('Demo: opens case study');return false">
+        <div class="ph" style="--ph:#f7e0d4"><img src="https://images.unsplash.com/photo-1557777586-f6682739fcf3?auto=format&fit=crop&w=900&q=70" alt="Sketches on paper"></div>
+        <div class="meta"><div><h3>Batik Studio Identity</h3><small>Branding · Logo & guidelines</small></div><span class="go">↗</span></div>
+      </a>
+      <a class="proj" data-cat="mobile" href="#" onclick="toast('Demo: opens case study');return false">
+        <div class="ph" style="--ph:#ffd9e6"><img src="https://images.unsplash.com/photo-1634403665481-74948d815f03?auto=format&fit=crop&w=900&q=70" alt="Phone on pink background"></div>
+        <div class="meta"><div><h3>Wellness Tracker</h3><small>Product design · iOS</small></div><span class="go">↗</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="about" style="padding-top:0">
+  <div class="wrap xp">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>A little about how I work</h2>
+      <p class="lead" style="font-size:16px">Research first, pixels second. I sit with real users, sketch fast, test early and hand off clean files developers love.</p>
+      <div class="skills"><span>Figma</span><span>User research</span><span>Prototyping</span><span>Design systems</span><span>Accessibility</span></div>
+    </div>
+    <ul class="xp-list">
+      <li><time>2024 — Now</time><div><b>Senior Product Designer · Fintech startup</b><p>Leading design for a mobile wallet used by 200k+ people.</p></div></li>
+      <li><time>2022 — 2024</time><div><b>UI/UX Designer · Digital agency</b><p>Designed websites and apps for hotels, retailers and NGOs.</p></div></li>
+      <li><time>2021</time><div><b>BSc in Design · University</b><p>First class, with a thesis on inclusive interfaces.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block" id="contact" style="padding-top:0">
+  <div class="wrap contact">
+    <div><h2>Have a project in mind?</h2><p>Tell me a little about it and I'll get back within a day. Coffee in Colombo is on me.</p></div>
+    <form data-demo="Thanks! (Demo: message not sent)">
+      <input required placeholder="Your name"><input required type="email" placeholder="Email address">
+      <textarea rows="4" placeholder="About your project"></textarea>
+      <button class="btn" type="submit">Send message</button>
+    </form>
+  </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Amaya Perera · Demo portfolio</span><span>Instagram · LinkedIn · Dribbble</span></div></footer>
+
+<script src="shared.js"></script>
+<script>
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.proj').forEach(p=>p.classList.toggle('hide',f!=='all'&&p.dataset.cat!==f));
+}));
+</script>
+<style>@media(max-width:760px){.nav-cta{display:none!important}}</style>
+</body>
+</html>
