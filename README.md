@@ -14,6 +14,7 @@ Visitors pick a category tab, preview the live sample site in **desktop** or **m
 | Clothing Boutiques | Loom & Leaf | `samples/clothing.html` |
 | Mobile Phone Shops | PhoneHub | `samples/mobile.html` |
 | Solar & Engineering | SunPeak Solar | `samples/solar.html` |
+| Landscaping & Gardens | Araliya Landscapes | `samples/landscaping.html` |
 | Schools & Institutes | Horizon Institute | `samples/education.html` |
 | Hotels & Villas | Palm Cove Villas | `samples/hotel.html` |
 | Personal Portfolios | Amaya Perera | `samples/portfolio.html` |
@@ -27,7 +28,7 @@ Every tab has its own link, for example:
 - `…/website-samples/?sample=restaurant`
 - `…/website-samples/?sample=solar`
 
-The IDs are `restaurant`, `grocery`, `clothing`, `mobile`, `solar`, `education`, `hotel` and `portfolio`.
+The IDs are `restaurant`, `grocery`, `clothing`, `mobile`, `solar`, `landscaping`, `education`, `hotel` and `portfolio`.
 Each sample also works as a standalone page, e.g. `…/website-samples/samples/hotel.html`.
 
 ## Adding a new category

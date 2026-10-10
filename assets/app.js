@@ -17,6 +17,7 @@ const ICONS = {
   shirt: '<path d="M8 3l-5 3 2 5 3-1v11h8V10l3 1 2-5-5-3a4 4 0 0 1-8 0z"/>',
   phone: '<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
   sun:   '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  leaf:  '<path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19c3-5 6-8 11-10"/>',
   cap:   '<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>',
   bed:   '<path d="M3 18V6M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/>',
   user:  '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>'
@@ -38,6 +39,9 @@ const SAMPLES = [
   { id:'solar', title:'Solar & Engineering', brand:'SunPeak Solar', url:'sunpeaksolar.lk', file:'samples/solar.html', icon:'sun', color:'#f59e0b', tint:'#e7edf6',
     desc:'A trustworthy site that explains your service and collects qualified quote requests.',
     features:['Live savings calculator','Step-by-step installation process','Project gallery and FAQs','Free site-visit request form'] },
+  { id:'landscaping', title:'Landscaping & Gardens', brand:'Araliya Landscapes', url:'araliyalandscapes.lk', file:'samples/landscaping.html', icon:'leaf', color:'#4d7c3f', tint:'#e8eedf',
+    desc:'A lush, visual site that shows off your finished gardens and the plants and items you supply.',
+    features:['Past-work gallery with project details','Plant & garden item catalogue with prices','Add-to-quote list that fills the enquiry form','Services, process and free site-visit form'] },
   { id:'education', title:'Schools & Institutes', brand:'Horizon Institute', url:'horizon.edu.lk', file:'samples/education.html', icon:'cap', color:'#1d4ed8', tint:'#e6edfb',
     desc:'A clear, confident site for courses and admissions that helps students and parents choose you.',
     features:['Course finder with level tabs','Intake countdown timer','Student testimonials','Admissions inquiry form'] },

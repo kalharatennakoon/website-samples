@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Araliya Landscapes — Garden Design, Plants & Landscaping (Demo)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+:root{--forest:#1d3a2a;--forest2:#284d38;--moss:#6f9152;--leaf:#dfe9d3;--clay:#c1643a;--cream:#f6f2e8;--ink:#17231b;--mut:#66736a;--line:#e3dfd2;--nav-bg:#f6f2e8}
+body{font-family:Figtree,system-ui,sans-serif;background:var(--cream);color:var(--ink)}
+h1,h2,h3,.ser{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
+header{position:sticky;top:0;z-index:40;background:rgba(246,242,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;position:relative}
+.brand{display:flex;align-items:center;gap:10px;font-family:"DM Serif Display";font-size:23px}
+.brand i{width:34px;height:34px;border-radius:50% 50% 50% 6px;background:var(--forest);display:grid;place-items:center;color:#f3d9a4;font-style:normal;font-size:16px}
+.nav-links{display:flex;gap:28px;font-size:15px;font-weight:500;color:var(--mut)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px;padding:14px 24px;border-radius:999px;transition:.2s}
+.btn-clay{background:var(--clay);color:#fff}.btn-clay:hover{background:#a9542f}
+.btn-dark{background:var(--forest);color:#fff}.btn-dark:hover{background:var(--forest2)}
+.btn-ghost{border:1px solid rgba(255,255,255,.45);color:#fff}.btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+.hero{padding:20px 0 0}
+.hero .box{position:relative;border-radius:32px;overflow:hidden;min-height:600px;display:flex;align-items:flex-end;color:#fff;--ph:var(--forest)}
+.hero .ph{position:absolute;inset:0}
+.hero .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,32,22,.15),rgba(15,32,22,.82))}
+.hero .in{position:relative;padding:56px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;width:100%}
+.pill{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px}
+.hero h1{font-size:clamp(42px,6vw,78px);line-height:1;letter-spacing:-.01em;margin:18px 0 16px}
+.hero h1 em{color:#f3d9a4}
+.hero p{font-size:17px;line-height:1.6;opacity:.9;max-width:520px}
+.hero .cta{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.2);border-radius:20px;overflow:hidden;backdrop-filter:blur(8px)}
+.stats div{background:rgba(20,40,28,.55);padding:20px 16px;font-size:13px;opacity:.95}
+.stats b{display:block;font-family:"DM Serif Display";font-size:32px;font-weight:400}
+
+section.block{padding:88px 0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clay)}
+h2{font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin-top:10px}
+.sub{color:var(--mut);line-height:1.65;margin-top:14px;max-width:580px;font-size:17px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:24px;padding:26px;transition:.25s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(29,58,42,.1)}
+.svc i{width:48px;height:48px;border-radius:16px;background:var(--leaf);color:var(--forest);display:grid;place-items:center;font-style:normal}
+.svc h3{font-size:23px;margin:20px 0 8px}
+.svc p{font-size:15px;color:var(--mut);line-height:1.6}
+
+.chips{display:flex;gap:8px;overflow-x:auto;max-width:100%;scrollbar-width:none;padding-bottom:2px}
+.chips button{white-space:nowrap;padding:10px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:14px;color:var(--mut);transition:.2s}
+.chips button.on{background:var(--forest);border-color:var(--forest);color:#fff}
+
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.work{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;cursor:pointer;color:#fff;text-align:left;--ph:#cfd9c4;display:block;width:100%}
+.work.tall{grid-row:span 2;aspect-ratio:auto}
+.work .ph{position:absolute;inset:0}
+.work .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,28,19,.82),transparent 55%)}
+.work:hover img{transform:scale(1.06)}
+.work .t{position:absolute;left:20px;right:20px;bottom:18px}
+.work .t small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.work .t b{display:block;font-family:"DM Serif Display";font-weight:400;font-size:24px;line-height:1.15;margin-top:4px}
+.work .go{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--forest);display:grid;place-items:center;font-size:18px;opacity:0;transform:translateY(6px);transition:.25s}
+.work:hover .go{opacity:1;transform:none}
+.work.hide{display:none}
+
+.nursery{background:var(--forest);color:#fff;border-radius:40px 40px 0 0}
+.nursery .eyebrow{color:#f3d9a4}.nursery .sub{color:#b9c9bd}
+.nursery .chips button{background:transparent;border-color:rgba(255,255,255,.22);color:#cfdcd2}
+.nursery .chips button.on{background:#f3d9a4;border-color:#f3d9a4;color:var(--forest)}
+.items{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.item{background:#fff;color:var(--ink);border-radius:22px;padding:10px;display:flex;flex-direction:column}
+.item .ph{aspect-ratio:1;border-radius:15px;--ph:var(--leaf)}
+.item .tag{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.94);font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px;color:var(--forest)}
+.item h3{font-size:20px;margin:12px 6px 2px}
+.item small{color:var(--mut);font-size:13px;margin:0 6px;line-height:1.4}
+.item .row{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding:12px 6px 6px}
+.item .price{font-weight:700;font-size:16px}.item .price span{font-weight:500;font-size:12px;color:var(--mut)}
+.pick{font-size:13px;font-weight:700;padding:9px 14px;border-radius:999px;background:var(--leaf);color:var(--forest);transition:.2s;white-space:nowrap}
+.pick:hover{background:var(--forest);color:#fff}
+.pick.on{background:var(--clay);color:#fff}
+.item.hide{display:none}
+.nursery-note{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px;padding:20px 24px;border:1px solid rgba(255,255,255,.18);border-radius:20px;color:#cfdcd2;font-size:15px}
+
+.process{background:var(--forest2);color:#fff;border-radius:0 0 40px 40px;padding-top:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step .ph{aspect-ratio:4/3;border-radius:20px;--ph:#35604a}
+.step .n{font-family:"DM Serif Display";font-size:15px;color:#f3d9a4;margin-top:16px;letter-spacing:.06em}
+.step h3{font-size:23px;margin:4px 0 6px}
+.step p{font-size:15px;color:#b9c9bd;line-height:1.6}
+
+.voice{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center}
+.voice .ph{border-radius:28px;aspect-ratio:4/3;--ph:#cfd9c4}
+.voice blockquote{margin:0;font-family:"DM Serif Display";font-size:clamp(24px,2.8vw,34px);line-height:1.3}
+.voice cite{display:block;font-style:normal;color:var(--mut);margin-top:18px;font-size:15px}
+.voice cite b{color:var(--ink)}
+.stars{color:var(--clay);letter-spacing:3px;margin-bottom:14px}
+
+.quote{background:#fff;border:1px solid var(--line);border-radius:32px;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-list{display:grid;gap:14px;margin-top:26px;font-size:15px;color:var(--mut)}
+.contact-list b{display:block;color:var(--ink);font-size:16px}
+.quote form{display:grid;gap:12px}
+.quote input,.quote select,.quote textarea{font:inherit;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:var(--cream);color:var(--ink);outline:none;width:100%}
+.quote textarea{min-height:110px;resize:vertical}
+.quote input:focus,.quote select:focus,.quote textarea:focus{border-color:var(--moss)}
+footer{padding:40px 0 70px;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* floating quote-list bar */
+.listbar{position:fixed;left:50%;bottom:18px;transform:translate(-50%,120%);z-index:60;display:flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:10px 10px 10px 20px;border-radius:999px;box-shadow:0 16px 40px rgba(0,0,0,.3);font-size:14px;font-weight:600;transition:.3s;white-space:nowrap}
+.listbar.show{transform:translate(-50%,0)}
+.listbar a{background:#f3d9a4;color:var(--forest);padding:10px 16px;border-radius:999px}
+
+/* project details */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(13,28,19,.8);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:.25s}
+.modal.open{opacity:1;pointer-events:auto}
+.sheet{background:var(--cream);border-radius:28px;overflow:hidden;width:min(920px,100%);max-height:90vh;display:grid;grid-template-columns:1.1fr 1fr;position:relative}
+.sheet .ph{min-height:420px;--ph:#cfd9c4}
+.sheet .body{padding:36px;overflow:auto}
+.sheet h3{font-size:32px;line-height:1.1;margin:8px 0 12px}
+.sheet p{color:var(--mut);line-height:1.6;font-size:15px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.facts div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:12px;color:var(--mut)}
+.facts b{display:block;color:var(--ink);font-size:15px;margin-top:2px}
+.scope li{display:flex;gap:10px;font-size:15px;padding:6px 0}
+.scope li::before{content:"✓";color:var(--moss);font-weight:700}
+.sheet .x{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;background:#fff;font-size:22px;z-index:2;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+
+@media (max-width:980px){
+  .services,.steps{grid-template-columns:1fr 1fr}
+  .items{grid-template-columns:repeat(3,1fr)}
+  .works{grid-template-columns:1fr 1fr}
+  .hero .in{grid-template-columns:1fr;padding:36px}
+}
+@media (max-width:760px){
+  section.block{padding:60px 0}
+  .hero .box{min-height:560px;border-radius:24px}
+  .hero .in{padding:24px}
+  .stats b{font-size:24px}.stats div{padding:14px 12px;font-size:12px}
+  .items{grid-template-columns:1fr 1fr;gap:10px}
+  .item .row{flex-direction:column;align-items:stretch}
+  .pick{text-align:center}
+  .works{gap:10px}
+  .work.tall{grid-row:auto;aspect-ratio:4/3}
+  .work .t b{font-size:18px}.work .t{left:14px;right:14px;bottom:12px}
+  .voice,.quote{grid-template-columns:1fr;gap:28px}
+  .quote{padding:28px 20px;border-radius:24px}
+  .nursery{border-radius:28px 28px 0 0}.process{border-radius:0 0 28px 28px}
+  .sheet{grid-template-columns:1fr;overflow:auto}
+  .sheet .ph{min-height:0;aspect-ratio:16/10}
+  .sheet .body{padding:24px;overflow:visible}
+  .nav-cta{display:none!important}
+}
+@media (max-width:520px){.services,.steps,.works{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="#"><i>❀</i>Araliya Landscapes</a>
+    <nav class="nav-links"><a href="#services">Services</a><a href="#projects">Our work</a><a href="#nursery">Plants &amp; items</a><a href="#process">How we work</a><a href="#quote">Contact</a></nav>
+    <a class="btn btn-dark nav-cta" href="#quote" style="padding:11px 20px">Free site visit</a>
+    <button class="burger" aria-label="Menu"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="box">
+      <div class="ph"><img src="https://images.unsplash.com/photo-1597201278257-3687be27d954?auto=format&fit=crop&w=1800&q=70" alt="Landscaped garden with flower beds, shaped shrubs and a green lawn"></div>
+      <div class="in">
+        <div>
+          <span class="pill">❀ Garden design · Build · Care</span>
+          <h1>Gardens that feel like <em>home</em></h1>
+          <p>We design, build and look after outdoor spaces for homes, villas and hotels, with plants grown in our own nursery.</p>
+          <div class="cta"><a class="btn btn-clay" href="#projects">See our work</a><a class="btn btn-ghost" href="#nursery">Browse plants &amp; items</a></div>
+        </div>
+        <div class="stats"><div><b>320+</b>Gardens built</div><div><b>14 yrs</b>Experience</div><div><b>180+</b>Plant varieties</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="eyebrow">What we do</div>
+    <h2>Everything your garden needs</h2>
+    <p class="sub">One team from the first sketch to the monthly trim, so nothing gets lost between designer, builder and gardener.</p>
+    <div class="services">
+      <div class="svc"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg></i><h3>Garden design</h3><p>Layout plans and 3D views made for your plot, sunlight and budget.</p></div>
+      <div class="svc"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 5-14 15-14 0 10-5 15-14 15"/><path d="M5 19c3-5 6-8 11-10"/></svg></i><h3>Planting &amp; lawns</h3><p>Trees, hedges, flower beds and fresh turf, planted and settled in.</p></div>
+      <div class="svc"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="18" height="7" rx="1"/></svg></i><h3>Paving &amp; structures</h3><p>Pathways, patios, pergolas, retaining walls and garden lighting.</p></div>
+      <div class="svc"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></i><h3>Ponds &amp; care</h3><p>Water features, irrigation and monthly maintenance visits.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">Our past work</div><h2>Gardens we've built</h2></div>
+      <div class="chips" id="workTabs"><button class="on" data-c="all">All</button><button data-c="home">Home gardens</button><button data-c="hard">Paving &amp; patios</button><button data-c="water">Water features</button><button data-c="commercial">Hotels &amp; villas</button></div>
+    </div>
+    <div class="works" id="works"></div>
+  </div>
+</section>
+
+<section class="block nursery" id="nursery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="eyebrow">From our nursery &amp; yard</div><h2>Plants and garden items</h2><p class="sub">Pick what you like and add it to your quote list. We'll confirm stock and prices with your quotation.</p></div>
+      <div class="chips" id="itemTabs"><button class="on" data-c="all">All</button><button data-c="plant">Plants</button><button data-c="pot">Pots &amp; planters</button><button data-c="stone">Stones &amp; turf</button><button data-c="feature">Features &amp; furniture</button></div>
+    </div>
+    <div class="items" id="items"></div>
+    <div class="nursery-note"><span>🌿 Visit the nursery: Kandy Road, Kadawatha · Open daily 8 am – 6 pm</span><a class="btn btn-clay" href="#quote" style="padding:11px 20px">Request a quote</a></div>
+  </div>
+</section>
+
+<section class="block process" id="process">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="eyebrow" style="color:#f3d9a4">How we work</div><h2>From bare plot to finished garden</h2></div></div>
+    <div class="steps">
+      <div class="step"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1779565145536-ccdf57517151?auto=format&fit=crop&w=600&q=70" alt="Green garden with mixed planting and a stone path"></div><div class="n">STEP 01</div><h3>Site visit</h3><p>We measure the space, check soil and sunlight, and listen to what you want.</p></div>
+      <div class="step"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1734079692160-fcbe4be6ab96?auto=format&fit=crop&w=600&q=70" alt="Landscaper pushing a wheelbarrow across a lawn"></div><div class="n">STEP 02</div><h3>Design &amp; quote</h3><p>You get a layout, a plant list and a clear price before any work starts.</p></div>
+      <div class="step"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1734079692079-aae7e24a7035?auto=format&fit=crop&w=600&q=70" alt="Hands pressing fresh turf into the ground"></div><div class="n">STEP 03</div><h3>Build &amp; plant</h3><p>Our own crew handles paving, planting and turf, neatly and on schedule.</p></div>
+      <div class="step"><div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1617576683096-00fc8eecb3af?auto=format&fit=crop&w=600&q=70" alt="Gardener pruning a shrub with hand shears"></div><div class="n">STEP 04</div><h3>Ongoing care</h3><p>Optional monthly visits for trimming, feeding and pest control.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap voice">
+    <div class="ph"><img loading="lazy" src="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&w=1000&q=70" alt="Crew mowing and trimming a large lawn"></div>
+    <div>
+      <div class="stars">★★★★★</div>
+      <blockquote>“They turned a muddy backyard into the place our family spends every evening. Six months on, everything they planted is thriving.”</blockquote>
+      <cite><b>Dilini &amp; Ruwan F.</b> · Home garden, Nugegoda</cite>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="quote" style="padding-top:0">
+  <div class="wrap quote">
+    <div>
+      <div class="eyebrow">Free site visit</div>
+      <h2>Tell us about your garden</h2>
+      <p class="sub">Share a few details and we'll call within one working day to arrange a visit.</p>
+      <div class="contact-list">
+        <div><b>077 123 4567</b>Call or WhatsApp, 8 am – 6 pm</div>
+        <div><b>hello@araliyalandscapes.lk</b>Send photos of your space</div>
+        <div><b>Kandy Road, Kadawatha</b>Nursery &amp; display garden</div>
+      </div>
+    </div>
+    <form data-demo="Request received! (Demo: nothing sent)">
+      <input required placeholder="Full name"><input required type="tel" placeholder="Phone number">
+      <select><option>Home garden</option><option>Villa / hotel</option><option>Office / commercial</option><option>Plants &amp; items only</option></select>
+      <textarea id="msg" placeholder="Tell us about your space, or add items from our nursery list"></textarea>
+      <button class="btn btn-clay" type="submit">Request my free visit</button>
+    </form>
+  </div>
+</section>
+<footer><div class="wrap"><span>❀ Araliya Landscapes · Demo website</span><span>© 2026</span></div></footer>
+
+<div class="listbar" id="listbar"><span id="listTxt"></span><a href="#quote">Request quote →</a></div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <button class="x" aria-label="Close" data-close>×</button>
+    <div class="ph"><img id="mImg" alt=""></div>
+    <div class="body">
+      <div class="eyebrow" id="mType"></div>
+      <h3 id="mTitle"></h3>
+      <p id="mDesc"></p>
+      <div class="facts"><div>Location<b id="mLoc"></b></div><div>Garden size<b id="mSize"></b></div><div>Build time<b id="mTime"></b></div><div>Completed<b id="mYear"></b></div></div>
+      <ul class="scope" id="mScope"></ul>
+      <a class="btn btn-clay" href="#quote" data-close style="margin-top:20px;width:100%">I want something like this</a>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js"></script>
+<script>
+const U=(id,w=700)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=70`;
+const fmt=n=>'LKR '+n.toLocaleString('en-US');
+const TYPES={home:'Home garden',hard:'Paving & patio',water:'Water feature',commercial:'Hotel & villa'};
+
+/* ---- past work ---- */
+const works=[
+  {n:'Lily pond & rock garden',c:'water',loc:'Kandy',size:'4,200 sq ft',time:'7 weeks',yr:'2025',tall:1,img:'1693568336362-cb99348c8a8d',
+   d:'A natural-looking pond with a rock island became the centre of this hillside garden, framed by layered planting.',s:['Lined pond with pump and filter','Natural stone edging','Layered shrubs and ground cover']},
+  {n:'Modern backyard with raised planters',c:'home',loc:'Nugegoda',size:'950 sq ft',time:'3 weeks',yr:'2026',img:'1715934514075-06f0dbda1c09',
+   d:'A small, bare backyard turned into a low-maintenance family space with clean lines and an easy-care lawn.',s:['Concrete raised planters','Low-maintenance lawn','Boundary wall finish and screening']},
+  {n:'Family patio & lawn',c:'hard',loc:'Battaramulla',size:'1,600 sq ft',time:'4 weeks',yr:'2025',img:'1719324924230-63781a3f18b9',
+   d:'A paved seating area that flows into the lawn, with soft planting to keep the space private.',s:['Large-format paving','Fresh turf and edging','Screening trees and flower beds']},
+  {n:'Curved brick garden walk',c:'hard',loc:'Negombo',size:'2,300 sq ft',time:'5 weeks',yr:'2024',img:'1700689807667-82630348b301',
+   d:'A curved brick path leads through tall hedging and seasonal flower borders to the back garden.',s:['Brick-paved pathway','Raised stone border','Hedge and flowering border planting']},
+  {n:'Pergola walkway',c:'commercial',loc:'Bentota',size:'6,000 sq ft',time:'9 weeks',yr:'2025',tall:1,img:'1782055828658-f16a2430ba6e',
+   d:'A shaded timber walkway connecting villa rooms to the pool, with climbers trained up each post.',s:['Timber pergola structure','Stone paving and steps','Climbers and screening hedges']},
+  {n:'Tiled courtyard with potted garden',c:'commercial',loc:'Galle Fort',size:'700 sq ft',time:'2 weeks',yr:'2026',img:'1776083928944-f427c6f1f738',
+   d:'A boutique hotel courtyard brought to life with a wall fountain, hanging ferns and colourful pots.',s:['Wall fountain installation','Potted and hanging plants','Slate floor restoration']},
+  {n:'Fern-lined stone steps',c:'home',loc:'Nuwara Eliya',size:'1,100 sq ft',time:'3 weeks',yr:'2024',img:'1759390304699-5c389476ca80',
+   d:'Stone-and-pebble steps down a sloped garden, softened on both sides with ferns and lilyturf.',s:['Stone steps with pebble inlay','Slope stabilising','Shade-loving ferns and borders']},
+  {n:'Circular stone terrace',c:'hard',loc:'Kurunegala',size:'1,400 sq ft',time:'4 weeks',yr:'2025',img:'1780838446281-9394772d07a8',
+   d:'A round granite terrace with a low seating wall, made for evening gatherings around a fire bowl.',s:['Granite cobble paving','Low seating wall','Border hedge planting']},
+  {n:'Sweeping lawn & gravel path',c:'commercial',loc:'Dambulla',size:'18,000 sq ft',time:'12 weeks',yr:'2024',img:'1668120089662-42642838cfef',
+   d:'Rolling lawns, clipped shrubs and a winding gravel path for a resort entrance garden.',s:['Land shaping and turfing','Gravel pathway','Automatic irrigation']},
+  {n:'Koi pond with water lilies',c:'water',loc:'Colombo 07',size:'350 sq ft',time:'2 weeks',yr:'2026',img:'1696124506484-c47e5fbaead1',
+   d:'A raised granite koi pond with water lilies, built as a calm corner in a city garden.',s:['Raised granite pond','Filter and aeration system','Water lilies and koi']}
+];
+const worksEl=document.getElementById('works');
+worksEl.innerHTML=works.map((w,i)=>`
+  <button class="work${w.tall?' tall':''}" data-c="${w.c}" data-i="${i}">
+    <div class="ph"><img loading="lazy" src="${U(w.img,900)}" alt="${w.n}" onerror="this.classList.add('broken')"></div>
+    <span class="go">↗</span>
+    <div class="t"><small>${TYPES[w.c]} · ${w.loc}</small><b>${w.n}</b></div>
+  </button>`).join('');
+
+function tabs(barId,sel){
+  const bar=document.getElementById(barId);
+  bar.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    bar.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    document.querySelectorAll(sel).forEach(el=>el.classList.toggle('hide',b.dataset.c!=='all'&&el.dataset.c!==b.dataset.c));
+  });
+}
+tabs('workTabs','.work');
+tabs('itemTabs','.item');
+
+const modal=document.getElementById('modal');
+const set=(id,v)=>document.getElementById(id).textContent=v;
+worksEl.addEventListener('click',e=>{
+  const el=e.target.closest('.work');if(!el)return;
+  const w=works[el.dataset.i];
+  const img=document.getElementById('mImg');img.classList.remove('broken');img.src=U(w.img,1100);img.alt=w.n;
+  set('mType',TYPES[w.c]);set('mTitle',w.n);set('mDesc',w.d);set('mLoc',w.loc);set('mSize',w.size);set('mTime',w.time);set('mYear',w.yr);
+  document.getElementById('mScope').innerHTML=w.s.map(x=>`<li>${x}</li>`).join('');
+  modal.classList.add('open');
+});
+modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('[data-close]'))modal.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('open');});
+
+/* ---- plants & items ---- */
+const items=[
+  {id:1,n:'Areca Palm',u:'Potted, 4–5 ft tall',p:4800,c:'plant',t:'Best seller',img:'1786227445740-75e353b40576'},
+  {id:2,n:'Araliya (Frangipani)',u:'Grafted, 3 ft, white & yellow',p:3500,c:'plant',t:'Fragrant',img:'1749375663762-259301a40f2d'},
+  {id:3,n:'Bougainvillea',u:'Pink, red or orange',p:1200,c:'plant',t:'Full sun',img:'1529916005909-d8be62bd4935'},
+  {id:4,n:'Succulent Mix',u:'Assorted, 3-inch pots',p:450,c:'plant',img:'1520157646479-22f25713523d'},
+  {id:5,n:'Indoor Foliage Plants',u:'ZZ, peace lily, ferns & more',p:1800,c:'plant',t:'Low light',img:'1592150621744-aca64f48394a'},
+  {id:6,n:'Fan Palm',u:'Potted, 2–3 ft tall',p:2900,c:'plant',img:'1763973799736-badf2ffe9aba'},
+  {id:7,n:'Terracotta Pots',u:'6 to 18 inch sizes',p:650,c:'pot',img:'1528789386055-75c4b717bad1'},
+  {id:8,n:'Clay Planter Set',u:'Set of 5, mixed sizes',p:2400,c:'pot',img:'1468531390554-9f62f9767a87'},
+  {id:9,n:'Cactus in Clay Pot',u:'Ready-potted with gravel top',p:750,c:'pot',img:'1584378619513-ecd2db623d0f'},
+  {id:10,n:'River Pebbles',u:'Mixed grey, 25 kg bag',p:1900,per:'bag',c:'stone',img:'1476989142744-32553061aca5'},
+  {id:11,n:'White Pebbles',u:'Polished, 25 kg bag',p:2600,per:'bag',c:'stone',img:'1563969192790-09235d78d95f'},
+  {id:12,n:'Fresh Turf',u:'Malaysian or Australian grass',p:95,per:'sq ft',c:'stone',t:'Laid for you',img:'1734079692079-aae7e24a7035'},
+  {id:13,n:'Tiered Stone Fountain',u:'Cast stone, with pump',p:185000,c:'feature',t:'Made to order',img:'1761024300156-aff4bec70b6a'},
+  {id:14,n:'Timber Garden Chair',u:'Weather-treated hardwood',p:28500,c:'feature',img:'1788510131745-7afd0b707169'},
+  {id:15,n:'Rustic Table & Bench',u:'Solid timber, seats six',p:96000,c:'feature',img:'1744975434397-db73c393c1f2'},
+  {id:16,n:'Lily Pond Kit',u:'Liner, pump and water lilies',p:64000,c:'feature',img:'1696124506484-c47e5fbaead1'}
+];
+const picked=new Set();
+const itemsEl=document.getElementById('items');
+itemsEl.innerHTML=items.map(p=>`
+  <div class="item" data-c="${p.c}">
+    <div class="ph"><img loading="lazy" src="${U(p.img,500)}" alt="${p.n}" onerror="this.classList.add('broken')">${p.t?`<span class="tag">${p.t}</span>`:''}</div>
+    <h3>${p.n}</h3><small>${p.u}</small>
+    <div class="row"><span class="price">${fmt(p.p)}${p.per?` <span>/ ${p.per}</span>`:''}</span><button class="pick" data-id="${p.id}">+ Add to quote</button></div>
+  </div>`).join('');
+itemsEl.addEventListener('click',e=>{
+  const b=e.target.closest('.pick');if(!b)return;
+  const id=+b.dataset.id,on=!picked.has(id);
+  on?picked.add(id):picked.delete(id);
+  b.classList.toggle('on',on);b.textContent=on?'✓ Added':'+ Add to quote';
+  const names=items.filter(p=>picked.has(p.id)).map(p=>p.n);
+  set('listTxt',names.length+(names.length===1?' item':' items')+' in your quote list');
+  document.getElementById('listbar').classList.toggle('show',names.length>0);
+  document.getElementById('msg').value=names.length?'I\'m interested in: '+names.join(', ')+'.':'';
+  toast(on?'Added to quote list':'Removed from quote list');
+});
+// hide the bar once the visitor reaches the form
+new IntersectionObserver(([en])=>document.getElementById('listbar').classList.toggle('show',!en.isIntersecting&&picked.size>0),{threshold:.2}).observe(document.getElementById('quote'));
+</script>
+</body>
+</html>
